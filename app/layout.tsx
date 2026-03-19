@@ -1,26 +1,26 @@
 import type { Metadata } from "next";
-import { Inter_Tight, Manrope } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
-const headingFont = Inter_Tight({
+const headingFont = Outfit({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["300", "700"],
   variable: "--font-heading",
 });
 
-const bodyFont = Manrope({
+const bodyFont = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500"],
   variable: "--font-body",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://wodnystandart.pl"),
-  title: "Wodny Standart | Inteligentne ciepło dla domu w Krakowie",
+  title: "Wodny Standart | Inteligentne ciepło dla Twojego domu",
   description:
-    "Profesjonalny montaż i serwis kotłów w Krakowie. Ponad 20 lat doświadczenia, szybki serwis i nowoczesne instalacje grzewcze.",
+    "Profesjonalny montaż i serwis kotłów w Krakowie. Ponad 20 lat doświadczenia, szybka reakcja i nowoczesne instalacje grzewcze.",
   openGraph: {
-    title: "Wodny Standart 2026",
+    title: "Wodny Standart",
     description:
       "Montaż kotłów, serwis i pompy ciepła w Krakowie. Szybko, czysto i z doświadczeniem.",
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         url: "/images/hero-technician.jpg",
         width: 1280,
         height: 853,
-        alt: "Technik serwisujący instalację grzewczą",
+        alt: "Technik Wodny Standart przy instalacji grzewczej",
       },
     ],
   },
@@ -42,9 +42,8 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body
-        className={`${headingFont.variable} ${bodyFont.variable} bg-[var(--bg)] font-[var(--font-body)] text-[var(--text)] antialiased`}
+        className={`${headingFont.variable} ${bodyFont.variable} bg-[var(--color-bg)] font-[var(--font-body)] text-[var(--color-text)] antialiased`}
       >
-        <div className="ambient-grid" />
         {children}
       </body>
     </html>

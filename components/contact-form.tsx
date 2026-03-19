@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 type FormState = {
   name: string;
@@ -41,24 +41,13 @@ export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [attempted, setAttempted] = useState(false);
 
-  const phoneValid = useMemo(() => isValidPolishPhone(form.phone), [form.phone]);
+  const phoneValid = isValidPolishPhone(form.phone);
   const canSubmit = phoneValid && form.name.trim().length > 1 && form.consent;
 
   return (
-    <div className="glass-panel rounded-[28px] p-5 sm:p-7">
-      <div className="mb-6">
-        <p className="mb-2 text-sm uppercase tracking-[0.24em] text-sky-300/80">Kontakt</p>
-        <h3 className="font-[var(--font-heading)] text-2xl font-bold tracking-tight text-white sm:text-3xl">
-          Odpowiemy szybko i konkretnie
-        </h3>
-        <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--muted)] sm:text-base">
-          Zostaw numer telefonu, a oddzwonimy z bezpłatną wstępną wyceną i dobierzemy
-          najlepsze rozwiązanie dla Twojej instalacji.
-        </p>
-      </div>
-
+    <div className="card-surface p-9 max-md:p-6">
       <form
-        className="space-y-4"
+        className="space-y-6"
         onSubmit={(event) => {
           event.preventDefault();
           setAttempted(true);
@@ -68,25 +57,25 @@ export function ContactForm() {
           }
 
           setSubmitted(true);
-          setForm(initialState);
           setAttempted(false);
+          setForm(initialState);
         }}
       >
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           <label className="block">
-            <span className="mb-2 block text-sm text-slate-200">Imię</span>
+            <p className="form-label">Imię</p>
             <input
               value={form.name}
               onChange={(event) =>
                 setForm((current) => ({ ...current, name: event.target.value }))
               }
               placeholder="Np. Michał"
-              className="w-full rounded-2xl border border-white/10 bg-white/6 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-400/50"
+              className="form-field"
             />
           </label>
 
           <label className="block">
-            <span className="mb-2 block text-sm text-slate-200">Telefon</span>
+            <p className="form-label">Telefon</p>
             <input
               value={form.phone}
               onChange={(event) =>
@@ -96,87 +85,68 @@ export function ContactForm() {
                 }))
               }
               inputMode="tel"
-              placeholder="+48 500 600 700"
-              className="w-full rounded-2xl border border-white/10 bg-white/6 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-400/50"
+              placeholder="+48 XXX XXX XXX"
+              className="form-field"
             />
-            <span
-              className={`mt-2 block text-xs ${
-                !form.phone.length
-                  ? "text-slate-500"
-                  : phoneValid
-                    ? "text-emerald-400"
-                    : "text-amber-300"
-              }`}
-            >
-              {!form.phone.length
-                ? "Numer sprawdzamy w czasie rzeczywistym."
-                : phoneValid
-                  ? "Numer telefonu wygląda poprawnie."
-                  : "Wpisz polski numer telefonu w formacie 9 cyfr."}
-            </span>
           </label>
         </div>
 
         <label className="block">
-          <span className="mb-2 block text-sm text-slate-200">Typ usługi</span>
+          <p className="form-label">Typ usługi</p>
           <select
             value={form.service}
             onChange={(event) =>
               setForm((current) => ({ ...current, service: event.target.value }))
             }
-            className="w-full rounded-2xl border border-white/10 bg-white/6 px-4 py-3 text-white outline-none transition focus:border-sky-400/50"
+            className="form-field select-field"
           >
-            <option className="bg-slate-900">Montaż kotła gazowego</option>
-            <option className="bg-slate-900">Przegląd okresowy</option>
-            <option className="bg-slate-900">Instalacja pompy ciepła</option>
-            <option className="bg-slate-900">Pogotowie gazowe 24/7</option>
+            <option>Montaż kotła gazowego</option>
+            <option>Przegląd okresowy</option>
+            <option>Instalacja pompy ciepła</option>
+            <option>Pogotowie gazowe 24/7</option>
           </select>
         </label>
 
         <label className="block">
-          <span className="mb-2 block text-sm text-slate-200">Krótka wiadomość</span>
+          <p className="form-label">Krótka wiadomość</p>
           <textarea
             value={form.message}
             onChange={(event) =>
               setForm((current) => ({ ...current, message: event.target.value }))
             }
             placeholder="Opisz krótko, czego potrzebujesz."
-            rows={4}
-            className="w-full resize-none rounded-2xl border border-white/10 bg-white/6 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-sky-400/50"
+            className="form-field min-h-20 resize-y"
           />
         </label>
 
-        <label className="flex items-start gap-3 rounded-2xl border border-white/8 bg-white/5 p-4">
+        <label className="flex items-start gap-3 rounded-[8px] border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
           <input
             type="checkbox"
             checked={form.consent}
             onChange={(event) =>
               setForm((current) => ({ ...current, consent: event.target.checked }))
             }
-            className="mt-1 h-4 w-4 rounded border-white/20 bg-transparent text-sky-500"
+            className="mt-[2px] h-4 w-4 accent-[var(--color-accent)]"
           />
-          <span className="text-sm leading-6 text-slate-300">
+          <span className="meta-text leading-6">
             Wyrażam zgodę na kontakt telefoniczny i mailowy w celu przedstawienia oferty.
           </span>
         </label>
 
         {attempted && !canSubmit ? (
-          <p className="text-sm text-amber-300">
-            Uzupełnij imię, poprawny numer telefonu i zaznacz zgodę marketingową.
+          <p className="text-[13px] leading-[1.5] text-[var(--color-orange)]">
+            Uzupełnij imię, poprawny numer telefonu i zaznacz zgodę na kontakt.
           </p>
         ) : null}
 
         {submitted ? (
-          <p className="rounded-2xl border border-emerald-500/25 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300">
-            Dziękujemy. W wersji produkcyjnej ten formularz wyśle zgłoszenie do biura.
+          <p className="rounded-[8px] border border-[var(--color-border)] bg-[var(--color-accent-light)] px-4 py-3 text-[13px] leading-[1.5] text-[var(--color-accent)]">
+            Dziękujemy. W wersji produkcyjnej formularz wyśle zgłoszenie bezpośrednio do biura.
           </p>
         ) : null}
 
-        <button
-          type="submit"
-          className="cta-primary inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm font-semibold transition sm:w-auto"
-        >
-          Bezpłatna wycena w 2 minuty
+        <button type="submit" className="button-base button-primary h-[52px] w-full">
+          Zamów bezpłatną wycenę →
         </button>
       </form>
     </div>

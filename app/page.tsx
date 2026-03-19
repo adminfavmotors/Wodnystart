@@ -7,127 +7,188 @@ import { Reveal } from "../components/reveal";
 import { ShowcaseSlider } from "../components/showcase-slider";
 import { SiteHeader } from "../components/site-header";
 
+const heroStats = [
+  { value: "4.9/5", label: "na Google" },
+  { value: "15 min", label: "oddzwaniamy zwykle" },
+  { value: "24/7", label: "serwis awaryjny" },
+];
+
+const stripStats = [
+  { value: "20", unit: "+", label: "lat doświadczenia\nw instalacjach" },
+  { value: "45", unit: "min", label: "średni czas reakcji\nw Krakowie" },
+  { value: "4.9", unit: "/5", label: "średnia ocen\nod klientów" },
+  { value: "10", unit: "lat", label: "gwarancji na\nwybrane realizacje" },
+];
+
 const benefits = [
   {
     title: "20 Lat Doświadczenia",
-    description: "Dwie dekady praktyki w najtrudniejszych instalacjach i modernizacjach kotłowni.",
-    icon: "experience",
-  },
-  {
-    title: "Ekspresowy Serwis",
-    description: "Reagujemy nawet w 45 minut na terenie Krakowa i okolic przy pilnych zgłoszeniach.",
-    icon: "speed",
-  },
-  {
-    title: "Gwarancja 10 Lat",
-    description: "Pracujemy tak, aby inwestycja była spokojna w użytkowaniu przez długie lata.",
+    description:
+      "Dwie dekady praktyki w montażu, modernizacji i serwisie instalacji grzewczych w Krakowie.",
     icon: "shield",
   },
   {
+    title: "Ekspresowy Serwis",
+    description:
+      "Szybko reagujemy na zgłoszenia i pomagamy także w nagłych awariach poza standardowym grafikiem.",
+    icon: "lightning",
+  },
+  {
+    title: "Gwarancja 10 Lat",
+    description:
+      "Pracujemy na sprawdzonych rozwiązaniach i dobieramy urządzenia tak, aby służyły bezproblemowo przez lata.",
+    icon: "medal",
+  },
+  {
     title: "Czysty Montaż",
-    description: "Dbamy o detale, porządek i estetykę kotłowni od pierwszego wejścia do odbioru.",
-    icon: "spark",
+    description:
+      "Dbamy o estetykę wykonania, porządek po pracy i przejrzysty układ całej kotłowni.",
+    icon: "check",
   },
 ];
 
 const services = [
   {
-    title: "Montaż Kotła Gazowego",
-    description: "Kompleksowa instalacja, test szczelności i pierwsze uruchomienie.",
+    category: "Montaż",
+    title: "Montaż kotła gazowego",
+    description: "Kompleksowa instalacja, próba szczelności i pierwsze uruchomienie urządzenia.",
     price: "1 800 PLN",
   },
   {
-    title: "Przegląd Okresowy",
-    description: "Diagnostyka, czyszczenie i optymalizacja spalania dla bezpiecznej pracy.",
+    category: "Serwis",
+    title: "Przegląd okresowy",
+    description: "Diagnostyka, czyszczenie i regulacja pracy kotła dla bezpiecznej eksploatacji.",
     price: "350 PLN",
   },
   {
-    title: "Instalacja Pompy Ciepła",
-    description: "Nowoczesne rozwiązania OZE z doborem urządzenia i wsparciem przy dofinansowaniu.",
+    category: "OZE",
+    title: "Instalacja pompy ciepła",
+    description:
+      "Dobór systemu, montaż i wsparcie przy przygotowaniu inwestycji oraz formalności.",
     price: "14 000 PLN",
   },
   {
-    title: "Pogotowie Gazowe 24/7",
-    description: "Natychmiastowa reakcja w przypadku awarii i zagrożenia bezpieczeństwa.",
+    category: "Serwis awaryjny",
+    title: "Pogotowie gazowe 24/7",
+    description:
+      "Natychmiastowa reakcja przy awarii, wycieku lub nagłym zatrzymaniu instalacji grzewczej.",
     price: "250 PLN",
+    emergency: true,
   },
-];
-
-const stats = [
-  { label: "20+ lat", detail: "praktyki w instalacjach grzewczych" },
-  { label: "45 min", detail: "średni czas reakcji w Krakowie" },
-  { label: "4.9/5", detail: "ocena klientów w Google Maps" },
-  { label: "10 lat", detail: "gwarancji na wybrane realizacje" },
 ];
 
 const showcases = [
   {
     title: "Nowa kotłownia dla domu jednorodzinnego",
-    district: "Kraków • Podgórze",
+    meta: "2026 · Kraków, Podgórze",
     timeline: "Realizacja: 3 dni robocze",
     before:
-      "Mało ergonomiczny układ, utrudniony dostęp serwisowy i przestarzała armatura, która obniżała komfort użytkowania.",
+      "Stara kotłownia była ciasna, chaotyczna i utrudniała bezpieczny dostęp do urządzeń podczas codziennego użytkowania oraz serwisu.",
     after:
-      "Nowy układ przyłączy, czytelny porządek instalacyjny, lepsza estetyka i łatwy serwis bez niepotrzebnego chaosu.",
-    objectPosition: "65% center",
-  },
-  {
-    title: "Modernizacja kotła i osprzętu",
-    district: "Kraków • Bronowice",
-    timeline: "Realizacja: 2 dni robocze",
-    before:
-      "Stary system wymagał częstych interwencji, a użytkownik nie miał pewności co do bezpieczeństwa i sprawności urządzenia.",
-    after:
-      "Nowy osprzęt i uporządkowana instalacja poprawiły sprawność, wygląd kotłowni i komfort codziennego użytkowania.",
-    objectPosition: "center center",
-  },
-  {
-    title: "Przegląd i reorganizacja instalacji",
-    district: "Kraków • Dębniki",
-    timeline: "Realizacja: 1 dzień roboczy",
-    before:
-      "Przewody były prowadzone chaotycznie, a klient zgłaszał trudności przy przeglądach i obawy o awarię w sezonie.",
-    after:
-      "Po serwisie i uporządkowaniu przestrzeni kotłownia wygląda profesjonalnie i jest gotowa do spokojnej eksploatacji.",
-    objectPosition: "58% center",
+      "Nowy układ instalacji uporządkował przestrzeń, poprawił estetykę i pozwolił na wygodny dostęp serwisowy bez zbędnego bałaganu.",
+    beforeImage:
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80",
+    afterImage:
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=80",
   },
 ];
 
-function SectionEyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="mb-3 text-sm uppercase tracking-[0.24em] text-sky-300/80">{children}</p>
-  );
-}
+const reviews = [
+  {
+    text:
+      "Szybka reakcja, fachowe wykonanie i pełna czystość po robocie. Kotłownia wygląda jak z katalogu. Polecam bez zastrzeżeń.",
+    author: "Marek W.",
+    area: "Kraków, Nowa Huta",
+    source: "Google Maps",
+  },
+  {
+    text:
+      "Awaria w piątek wieczorem — technik był u nas w 40 minut. Problem rozwiązany tego samego dnia. Rozsądna cena za pogotowie.",
+    author: "Agnieszka K.",
+    area: "Kraków, Podgórze",
+    source: "Google Maps",
+  },
+  {
+    text:
+      "Wymiana kotła na pompę ciepła zrealizowana w 3 dni, bez chaosu i niespodzianek. Dofinansowanie dopięte razem z ekipą.",
+    author: "Piotr i Monika R.",
+    area: "Kraków, Bieżanów",
+    source: "Booksy",
+  },
+];
 
-function Icon({ type }: { type: string }) {
-  const common = "h-6 w-6 text-white";
+const footerLinks = [
+  { label: "Zalety", href: "#zalety" },
+  { label: "Usługi", href: "#uslugi" },
+  { label: "Realizacje", href: "#realizacje" },
+  { label: "Kontakt", href: "#kontakt" },
+];
 
-  if (type === "experience") {
+function BenefitIcon({ type }: { type: string }) {
+  if (type === "shield") {
     return (
-      <svg viewBox="0 0 24 24" className={common} aria-hidden="true">
+      <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
         <path
-          d="M12 2 4 6v6c0 5.3 3.2 8.6 8 10 4.8-1.4 8-4.7 8-10V6l-8-4Z"
+          d="M12 2 5 5v6c0 4.7 2.8 8.2 7 10 4.2-1.8 7-5.3 7-10V5l-7-3Z"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.6"
+          strokeWidth="1.8"
         />
-        <path d="M9 12.5 11.2 15 15.5 10" fill="none" stroke="currentColor" strokeWidth="1.8" />
       </svg>
     );
   }
 
-  if (type === "speed") {
+  if (type === "lightning") {
     return (
-      <svg viewBox="0 0 24 24" className={common} aria-hidden="true">
+      <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
         <path
-          d="M5 16a7 7 0 1 1 14 0"
+          d="M13 2 6 13h5l-1 9 8-12h-5l0-8Z"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.6"
-          strokeLinecap="round"
+          strokeWidth="1.8"
+          strokeLinejoin="round"
         />
+      </svg>
+    );
+  }
+
+  if (type === "medal") {
+    return (
+      <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
+        <circle cx="12" cy="9" r="4" fill="none" stroke="currentColor" strokeWidth="1.8" />
         <path
-          d="M12 9v4l3 2"
+          d="M9 13.5 7.5 21l4.5-2.5 4.5 2.5-1.5-7.5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
+      <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <path
+        d="m8.5 12 2.2 2.2 4.8-4.8"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ContactInfoIcon({ type }: { type: "clock" | "service" | "location" | "phone" | "mail" }) {
+  if (type === "clock") {
+    return (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 text-[var(--color-accent)]" aria-hidden="true">
+        <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" strokeWidth="1.8" />
+        <path
+          d="M12 8v4l2.5 2.5"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.8"
@@ -137,27 +198,55 @@ function Icon({ type }: { type: string }) {
     );
   }
 
-  if (type === "shield") {
+  if (type === "service") {
     return (
-      <svg viewBox="0 0 24 24" className={common} aria-hidden="true">
+      <svg viewBox="0 0 24 24" className="h-5 w-5 text-[var(--color-orange)]" aria-hidden="true">
         <path
-          d="M12 2 5 5v6c0 4.7 2.8 8.2 7 10 4.2-1.8 7-5.3 7-10V5l-7-3Z"
+          d="M13 2 6 13h5l-1 9 8-12h-5l0-8Z"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.6"
+          strokeWidth="1.8"
+          strokeLinejoin="round"
         />
-        <path d="M9 12.4 11 14.5 15.6 10" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      </svg>
+    );
+  }
+
+  if (type === "location") {
+    return (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 text-[var(--color-accent)]" aria-hidden="true">
+        <path
+          d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11Z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+        />
+        <circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      </svg>
+    );
+  }
+
+  if (type === "mail") {
+    return (
+      <svg viewBox="0 0 24 24" className="h-[14px] w-[14px] text-[var(--color-accent)]" aria-hidden="true">
+        <path
+          d="M4 7h16v10H4V7Zm0 0 8 6 8-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinejoin="round"
+        />
       </svg>
     );
   }
 
   return (
-    <svg viewBox="0 0 24 24" className={common} aria-hidden="true">
+    <svg viewBox="0 0 24 24" className="h-[14px] w-[14px] text-[var(--color-accent)]" aria-hidden="true">
       <path
-        d="m12 2 1.6 5.2H19l-4.4 3.2L16.3 16 12 12.8 7.7 16l1.7-5.6L5 7.2h5.4L12 2Z"
+        d="M7.5 4.5h3l1.5 3-2 1.8a13.4 13.4 0 0 0 4.7 4.7l1.8-2 3 1.5v3a2 2 0 0 1-2.2 2A15.8 15.8 0 0 1 5.5 6.7 2 2 0 0 1 7.5 4.5Z"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.6"
+        strokeWidth="1.8"
         strokeLinejoin="round"
       />
     </svg>
@@ -166,243 +255,382 @@ function Icon({ type }: { type: string }) {
 
 export default function HomePage() {
   return (
-    <main className="pb-20">
+    <main className="bg-[var(--color-bg)]">
       <SiteHeader />
 
-      <div className="mx-auto flex max-w-7xl flex-col gap-16 px-4 pt-8 sm:px-6 lg:px-8 lg:gap-24 lg:pt-12">
-        <section className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
-          <Reveal className="max-w-3xl">
-            <div className="pill mb-6 inline-flex rounded-full px-4 py-2 text-sm text-slate-200">
-              Kraków • Autoryzowany partner Viessmann &amp; Vaillant
-            </div>
-            <h1 className="font-[var(--font-heading)] text-5xl font-extrabold leading-none tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Inteligentne Ciepło dla Twojego Domu.{" "}
-              <span className="gradient-text">Standard, Któremu Ufasz.</span>
+      <section className="bg-[var(--color-bg)] pb-24 pt-32">
+        <div className="site-container grid items-center gap-12 lg:grid-cols-[55fr_45fr]">
+          <Reveal className="max-w-[640px]">
+            <span className="inline-flex items-center gap-[6px] rounded-[4px] bg-[var(--color-accent-light)] px-[14px] py-[6px] text-[12px] font-medium leading-[1.5] text-[var(--color-accent)]">
+              <span aria-hidden="true">✓</span>
+              Autoryzowany partner Viessmann &amp; Vaillant
+            </span>
+
+            <h1 className="mt-5 font-[var(--font-heading)] text-[60px] font-bold leading-[1.1] tracking-[-0.02em] text-[var(--color-text)] max-md:text-[42px]">
+              Inteligentne ciepło dla Twojego domu
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
-              Profesjonalny montaż i serwis kotłów w Krakowie. Ponad 20 lat doświadczenia,
-              które gwarantuje bezpieczeństwo Twojej rodziny.
+            <p className="mt-4 max-w-[460px] text-[16px] font-light leading-[1.7] text-[var(--color-text-muted)]">
+              Profesjonalny montaż i serwis kotłów w Krakowie — ponad 20 lat doświadczenia.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#kontakt"
-                className="cta-primary inline-flex items-center justify-center rounded-full px-6 py-3.5 text-base font-semibold transition"
-              >
-                Bezpłatna wycena w 2 minuty
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a href="#kontakt" className="button-base button-primary px-7 py-[14px]">
+                Bezpłatna wycena w 2 godz. →
               </a>
-              <a
-                href="tel:+48123456789"
-                className="cta-secondary inline-flex items-center justify-center rounded-full px-6 py-3.5 text-base text-slate-100 transition"
-              >
+              <a href="tel:+48123456789" className="button-base button-secondary px-6 py-[14px]">
                 Zadzwoń teraz
               </a>
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-slate-300">
-              <span className="pill rounded-full px-4 py-2">4.9/5 na Google Maps</span>
-              <span className="pill rounded-full px-4 py-2">Oddzwaniamy w 15 minut</span>
-              <span className="pill rounded-full px-4 py-2">Serwis awaryjny 24/7</span>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="glass-panel relative overflow-hidden rounded-[32px] p-3 sm:col-span-2">
-                <div className="relative h-[420px] overflow-hidden rounded-[26px]">
-                  <Image
-                    src="/images/hero-technician.jpg"
-                    alt="Technik Wodny Standart przy instalacji grzewczej"
-                    fill
-                    priority
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(6,11,22,0.16),rgba(11,17,32,0.72))]" />
-                  <div className="absolute bottom-4 left-4 right-4 grid gap-3 sm:grid-cols-3">
-                    <div className="glass-panel rounded-[22px] p-4">
-                      <p className="text-xs uppercase tracking-[0.2em] text-sky-200/80">Kraków</p>
-                      <p className="mt-2 text-lg font-semibold text-white">Lokalny zespół</p>
-                    </div>
-                    <div className="glass-panel rounded-[22px] p-4">
-                      <p className="text-xs uppercase tracking-[0.2em] text-sky-200/80">Bezpieczeństwo</p>
-                      <p className="mt-2 text-lg font-semibold text-white">Test szczelności i odbiór</p>
-                    </div>
-                    <div className="glass-panel rounded-[22px] p-4">
-                      <p className="text-xs uppercase tracking-[0.2em] text-sky-200/80">Porządek</p>
-                      <p className="mt-2 text-lg font-semibold text-white">Czysty montaż jak z katalogu</p>
-                    </div>
+            <div className="mt-12 flex flex-wrap items-center gap-2">
+              {heroStats.map((stat, index) => (
+                <div key={stat.label} className="flex items-center gap-2">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-[13px] font-medium leading-[1.5] text-[var(--color-accent)]">
+                      {stat.value}
+                    </span>
+                    <span className="text-[13px] font-light leading-[1.5] text-[var(--color-text-muted)]">
+                      {stat.label}
+                    </span>
                   </div>
-                </div>
-              </div>
-
-              {stats.map((stat) => (
-                <div key={stat.label} className="glass-panel rounded-[28px] p-5">
-                  <p className="text-3xl font-bold tracking-tight text-white">{stat.label}</p>
-                  <p className="mt-2 text-sm leading-6 text-slate-300">{stat.detail}</p>
+                  {index < heroStats.length - 1 ? (
+                    <span className="text-[13px] leading-[1.5] text-[var(--color-border)]">·</span>
+                  ) : null}
                 </div>
               ))}
             </div>
           </Reveal>
-        </section>
 
-        <Reveal>
-          <section id="zalety" className="section-shell rounded-[36px] p-6 sm:p-8 lg:p-10">
-            <SectionEyebrow>Dlaczego klienci nam ufają</SectionEyebrow>
-            <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-              <div>
-                <h2 className="font-[var(--font-heading)] text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                  Premium service dla domu, który ma działać bez stresu.
-                </h2>
-                <p className="mt-4 max-w-xl text-base leading-7 text-slate-300">
-                  Łączymy szybkość reakcji, doświadczenie i estetykę wykonania. Strona ma
-                  wyglądać nowocześnie, ale sama usługa nadal opiera się na zaufaniu i konkretach.
-                </p>
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-2">
-                {benefits.map((benefit, index) => (
-                  <Reveal key={benefit.title} delay={0.05 * index}>
-                    <div className="glass-panel rounded-[28px] p-5">
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/6">
-                        <Icon type={benefit.icon} />
-                      </div>
-                      <h3 className="font-[var(--font-heading)] text-xl font-bold tracking-tight text-white">
-                        {benefit.title}
-                      </h3>
-                      <p className="mt-3 text-sm leading-6 text-slate-300">{benefit.description}</p>
-                    </div>
-                  </Reveal>
-                ))}
+          <Reveal delay={0.08}>
+            <div className="overflow-hidden rounded-[8px] border border-[var(--color-border)] bg-[var(--color-bg-card)]">
+              <div className="relative aspect-[16/9] min-h-[520px] max-md:min-h-0">
+                <Image
+                  src="/images/hero-technician.jpg"
+                  alt="Technik Wodny Standart przy instalacji grzewczej"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover"
+                />
               </div>
             </div>
-          </section>
-        </Reveal>
+          </Reveal>
+        </div>
+      </section>
 
-        <Reveal>
-          <section id="uslugi" className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
-            <div className="section-shell rounded-[32px] p-6 sm:p-8">
-              <SectionEyebrow>Usługi i ceny</SectionEyebrow>
-              <h2 className="font-[var(--font-heading)] text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Jasna oferta dla klientów, którzy chcą działać od razu
-              </h2>
-              <p className="mt-4 text-base leading-7 text-slate-300">
-                Podajemy stawki startowe, żeby odsiać przypadkowe zapytania i szybciej przejść do
-                konkretnej wyceny.
-              </p>
-              <div className="mt-8 rounded-[28px] border border-sky-400/14 bg-sky-500/8 p-5">
-                <p className="text-sm leading-6 text-slate-200">
-                  Każda wycena uwzględnia warunki na miejscu, typ urządzenia, zakres materiałów i
-                  oczekiwany termin realizacji.
+      <section className="bg-[var(--color-bg-dark)] py-16">
+        <div className="site-container">
+          <div className="grid grid-cols-2 overflow-hidden rounded-[8px] border border-[rgba(255,255,255,0.08)] md:grid-cols-4">
+            {stripStats.map((stat, index) => (
+              <div
+                key={stat.label}
+                className={`flex flex-col items-center justify-center px-6 py-8 text-center ${
+                  index === 1
+                    ? "border-l border-[rgba(255,255,255,0.1)] md:border-l"
+                    : index === 2
+                      ? "border-t border-[rgba(255,255,255,0.1)] md:border-l md:border-t-0"
+                      : index === 3
+                        ? "border-l border-t border-[rgba(255,255,255,0.1)] md:border-l md:border-t-0"
+                        : ""
+                }`}
+              >
+                <div className="flex items-end gap-1">
+                  <span className="font-[var(--font-heading)] text-[56px] font-bold leading-none text-white">
+                    {stat.value}
+                  </span>
+                  <span className="pb-2 font-[var(--font-heading)] text-[20px] font-light leading-none text-[rgba(255,255,255,0.5)]">
+                    {stat.unit}
+                  </span>
+                </div>
+                <p className="mt-2 max-w-[140px] whitespace-pre-line text-[13px] font-light leading-[1.5] text-[rgba(255,255,255,0.55)]">
+                  {stat.label}
                 </p>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="space-y-3">
-              {services.map((service) => (
+      <section id="zalety" className="site-section bg-[var(--color-bg-alt)]">
+        <div className="site-container">
+          <Reveal className="max-w-[680px]">
+            <p className="section-eyebrow">Dlaczego klienci nam ufają</p>
+            <h2 className="section-title">Dlaczego klienci nam ufają</h2>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {benefits.map((benefit, index) => (
+              <Reveal key={benefit.title} delay={0.08 * index}>
+                <div className="card-surface h-full p-7">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-[8px] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
+                    <BenefitIcon type={benefit.icon} />
+                  </div>
+                  <h3 className="mt-4 font-[var(--font-heading)] text-[20px] font-bold leading-[1.3] text-[var(--color-text)]">
+                    {benefit.title}
+                  </h3>
+                  <p className="mt-2 text-[14px] font-light leading-[1.6] text-[var(--color-text-muted)]">
+                    {benefit.description}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-[var(--color-border)] bg-[var(--color-bg)] py-12">
+        <div className="site-container flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <p className="text-[11px] uppercase tracking-[0.07em] text-[var(--color-text-muted)]">
+            Autoryzowany partner:
+          </p>
+          <div className="flex flex-wrap items-center gap-4 text-[var(--color-text)]">
+            <span className="font-[var(--font-heading)] text-[20px] font-bold tracking-[0.04em] opacity-45 transition duration-200 ease-in-out hover:opacity-80">
+              VIESSMANN
+            </span>
+            <span className="text-[var(--color-border)]">/</span>
+            <span className="font-[var(--font-heading)] text-[20px] font-bold tracking-[0.04em] opacity-45 transition duration-200 ease-in-out hover:opacity-80">
+              VAILLANT
+            </span>
+            <span className="text-[var(--color-border)]">/</span>
+            <span className="font-[var(--font-heading)] text-[16px] font-bold tracking-[0.04em] opacity-45 transition duration-200 ease-in-out hover:opacity-80">
+              WORCESTER BOSCH
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section id="uslugi" className="site-section bg-[var(--color-bg)]">
+        <div className="site-container">
+          <Reveal className="max-w-[720px]">
+            <p className="section-eyebrow">Usługi i ceny</p>
+            <h2 className="section-title">Usługi i ceny</h2>
+            <p className="section-subtitle">
+              Przejrzyste stawki startowe — bez ukrytych kosztów. Dokładna wycena po bezpłatnej
+              konsultacji.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
+            {services.map((service, index) => (
+              <Reveal key={service.title} delay={0.08 * index}>
                 <div
-                  key={service.title}
-                  className="service-row glass-panel rounded-[28px] border border-white/10 p-5 sm:p-6"
+                  className={`card-surface card-hover h-full p-7 ${
+                    service.emergency ? "border-l-[3px] border-l-[var(--color-orange)]" : ""
+                  }`}
                 >
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="max-w-2xl">
-                      <h3 className="font-[var(--font-heading)] text-xl font-bold tracking-tight text-white">
-                        {service.title}
-                      </h3>
-                      <p className="mt-2 text-sm leading-6 text-slate-300">{service.description}</p>
-                    </div>
-                    <div className="shrink-0">
-                      <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Cena od</p>
-                      <p className="mt-2 text-3xl font-bold tracking-tight text-white">
+                  <span
+                    className={`inline-block rounded-[4px] px-[10px] py-[3px] text-[10px] uppercase tracking-[0.07em] ${
+                      service.emergency
+                        ? "bg-[rgba(224,106,27,0.1)] text-[var(--color-orange)]"
+                        : "bg-[var(--color-accent-light)] text-[var(--color-accent)]"
+                    }`}
+                  >
+                    {service.category}
+                  </span>
+                  <h3 className="mt-3 font-[var(--font-heading)] text-[20px] font-bold leading-[1.3] text-[var(--color-text)]">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 text-[14px] font-light leading-[1.6] text-[var(--color-text-muted)]">
+                    {service.description}
+                  </p>
+
+                  <div className="my-5 border-t border-[var(--color-border)]" />
+
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                      <p className="price-label">Cena od</p>
+                      <p
+                        className={`price-value ${
+                          service.emergency ? "text-[var(--color-orange)]" : ""
+                        }`}
+                      >
                         {service.price}
                       </p>
                     </div>
+                    <a href="#kontakt" className="button-base button-secondary px-4 py-[10px] text-[12px]">
+                      Zapytaj o wycenę
+                    </a>
                   </div>
                 </div>
-              ))}
-            </div>
-          </section>
-        </Reveal>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        <section id="realizacje">
-          <ShowcaseSlider items={showcases} />
-        </section>
-
-        <section id="kontakt" className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
+      <section id="realizacje" className="site-section bg-[var(--color-bg-alt)]">
+        <div className="site-container">
           <Reveal>
-            <ContactForm />
+            <ShowcaseSlider items={showcases} />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="site-section bg-[var(--color-bg-dark)]">
+        <div className="site-container">
+          <Reveal className="max-w-[720px]">
+            <h2 className="section-title section-title-dark">Co mówią nasi klienci</h2>
+            <p className="mt-3 text-[14px] leading-[1.5] text-[rgba(255,255,255,0.55)]">
+              Ponad 280 opinii na Google i Booksy. Średnia 4.9/5.
+            </p>
           </Reveal>
 
-          <Reveal delay={0.1}>
-            <div className="space-y-6">
-              <MapCard />
-              <div className="section-shell rounded-[28px] p-6">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.2em] text-slate-400">Telefon</p>
-                    <a href="tel:+48123456789" className="mt-2 block text-lg font-semibold text-white">
-                      +48 12 345 67 89
-                    </a>
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {reviews.map((review, index) => (
+              <Reveal key={review.author} delay={0.08 * index}>
+                <div className="rounded-[8px] border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.06)] p-7">
+                  <p className="text-[16px] leading-none text-[#F59E0B]">★★★★★</p>
+                  <p className="mt-3 text-[15px] font-light leading-[1.7] text-[rgba(255,255,255,0.8)]">
+                    “{review.text}”
+                  </p>
+                  <div className="my-4 border-t border-[rgba(255,255,255,0.08)]" />
+                  <p className="text-[14px] font-medium leading-[1.5] text-white">{review.author}</p>
+                  <p className="mt-[2px] text-[12px] leading-[1.5] text-[rgba(255,255,255,0.45)]">
+                    {review.area}
+                  </p>
+                  <p className="text-[12px] leading-[1.5] text-[rgba(255,255,255,0.35)]">
+                    {review.source}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <a
+            href="https://maps.google.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="button-base button-secondary-dark mx-auto mt-10 flex w-fit"
+          >
+            Zobacz wszystkie opinie na Google Maps →
+          </a>
+        </div>
+      </section>
+
+      <section id="kontakt" className="site-section bg-[var(--color-bg-alt)]">
+        <div className="site-container">
+          <div className="grid gap-8 lg:grid-cols-[40fr_60fr] lg:items-start">
+            <Reveal>
+              <div className="max-w-[420px]">
+                <h2 className="font-[var(--font-heading)] text-[28px] font-bold leading-[1.2] text-[var(--color-text)]">
+                  Odpowiemy szybko i konkretnie
+                </h2>
+                <p className="mt-4 text-[15px] font-light leading-[1.7] text-[var(--color-text-muted)]">
+                  Zostaw numer — oddzwaniamy zwykle jeszcze tego samego dnia w godzinach pracy.
+                </p>
+
+                <div className="mt-8 space-y-6">
+                  <div className="flex items-start gap-3">
+                    <ContactInfoIcon type="clock" />
+                    <p className="text-[14px] leading-[1.6] text-[var(--color-text)]">
+                      Pon–Pt, 8:00–20:00
+                    </p>
                   </div>
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.2em] text-slate-400">E-mail</p>
-                    <a
-                      href="mailto:biuro@wodnystandart.pl"
-                      className="mt-2 block text-lg font-semibold text-white"
-                    >
-                      biuro@wodnystandart.pl
-                    </a>
+                  <div className="flex items-start gap-3">
+                    <ContactInfoIcon type="service" />
+                    <p className="text-[14px] leading-[1.6] text-[var(--color-text)]">
+                      Awaria? Serwis całą dobę, 7 dni w tygodniu
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <ContactInfoIcon type="location" />
+                    <p className="text-[14px] leading-[1.6] text-[var(--color-text)]">
+                      ul. Wielicka 92, 30-552 Kraków
+                    </p>
                   </div>
                 </div>
-              </div>
-            </div>
-          </Reveal>
-        </section>
-      </div>
 
-      <footer className="mx-auto mt-16 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="section-shell rounded-[32px] px-6 py-8 sm:px-8">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+                <a
+                  href="tel:+48123456789"
+                  className="mt-6 inline-block font-[var(--font-heading)] text-[24px] font-bold leading-[1.2] text-[var(--color-accent)]"
+                >
+                  +48 12 345 67 89
+                </a>
+              </div>
+            </Reveal>
+
+            <div className="space-y-6">
+              <Reveal delay={0.08}>
+                <ContactForm />
+              </Reveal>
+              <Reveal delay={0.16}>
+                <MapCard />
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-[var(--color-bg-dark)] pb-8 pt-16">
+        <div className="site-container">
+          <div className="grid gap-10 md:grid-cols-3">
             <div>
-              <p className="font-[var(--font-heading)] text-2xl font-bold tracking-tight text-white">
+              <p className="font-[var(--font-heading)] text-[20px] font-bold leading-[1.2] text-white">
                 Wodny Standart
               </p>
-              <p className="mt-2 text-sm leading-6 text-slate-300">
+              <p className="mt-4 max-w-[220px] text-[13px] leading-[1.6] text-[rgba(255,255,255,0.45)]">
                 Inteligentne ciepło dla domu w Krakowie. Montaż, serwis i nowoczesne instalacje
                 grzewcze.
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4 text-sm text-slate-300">
-              <Link href="/polityka-prywatnosci" className="transition hover:text-white">
-                Polityka Prywatności
+            <div>
+              <p className="mb-3 text-[11px] uppercase tracking-[0.07em] text-[rgba(255,255,255,0.35)]">
+                Na skróty
+              </p>
+              <div className="flex flex-col">
+                {footerLinks.map((link) => (
+                  <a key={link.href} href={link.href} className="footer-link">
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <p className="mb-3 text-[11px] uppercase tracking-[0.07em] text-[rgba(255,255,255,0.35)]">
+                Kontakt
+              </p>
+              <div className="space-y-3 text-[rgba(255,255,255,0.6)]">
+                <div className="flex items-center gap-3 text-[14px]">
+                  <ContactInfoIcon type="phone" />
+                  <a
+                    href="tel:+48123456789"
+                    className="transition duration-150 ease-in-out hover:text-white"
+                  >
+                    +48 12 345 67 89
+                  </a>
+                </div>
+                <div className="flex items-center gap-3 text-[14px]">
+                  <ContactInfoIcon type="mail" />
+                  <a
+                    href="mailto:biuro@wodnystandart.pl"
+                    className="transition duration-150 ease-in-out hover:text-white"
+                  >
+                    biuro@wodnystandart.pl
+                  </a>
+                </div>
+                <div className="flex items-center gap-3 text-[14px]">
+                  <ContactInfoIcon type="location" />
+                  <span>ul. Wielicka 92, Kraków</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-col gap-4 border-t border-[rgba(255,255,255,0.08)] pt-6 text-[12px] text-[rgba(255,255,255,0.3)] md:flex-row md:items-center md:justify-between">
+            <p>© 2026 Wodny Standart. Wszelkie prawa zastrzeżone.</p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/polityka-prywatnosci" className="transition duration-150 ease-in-out hover:text-white">
+                Polityka prywatności
               </Link>
-              <Link href="/regulamin" className="transition hover:text-white">
-                Regulamin Serwisu
+              <Link href="/regulamin" className="transition duration-150 ease-in-out hover:text-white">
+                Regulamin
               </Link>
-              <a href="#kontakt" className="transition hover:text-white">
-                Zgody Marketingowe
-              </a>
             </div>
           </div>
         </div>
       </footer>
-
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-slate-950/88 px-4 py-3 backdrop-blur sm:hidden">
-        <div className="mx-auto flex max-w-md gap-3">
-          <a
-            href="tel:+48123456789"
-            className="cta-secondary inline-flex flex-1 items-center justify-center rounded-full px-4 py-3 text-sm text-white"
-          >
-            Zadzwoń
-          </a>
-          <a
-            href="#kontakt"
-            className="cta-primary inline-flex flex-1 items-center justify-center rounded-full px-4 py-3 text-sm font-semibold"
-          >
-            Wycena
-          </a>
-        </div>
-      </div>
 
       <CookieBanner />
     </main>

@@ -28,10 +28,12 @@ export function CookieBanner() {
   }
 
   return (
-    <div className="fixed inset-x-4 bottom-4 z-50 sm:left-6 sm:right-6 lg:left-auto lg:right-8 lg:max-w-md">
-      <div className="glass-panel rounded-[24px] p-5">
-        <p className="mb-2 text-sm font-semibold text-white">Używamy cookies w rozsądny sposób</p>
-        <p className="text-sm leading-6 text-slate-300">
+    <div className="fixed inset-x-5 bottom-5 z-50 md:left-auto md:right-6 md:max-w-[380px]">
+      <div className="card-surface p-6 shadow-[0_18px_48px_rgba(15,25,35,0.12)]">
+        <p className="text-[14px] font-medium leading-[1.5] text-[var(--color-text)]">
+          Używamy cookies w rozsądny sposób
+        </p>
+        <p className="mt-2 text-[13px] leading-[1.6] text-[var(--color-text-muted)]">
           Tylko po to, by poprawić działanie strony, analizować ruch i obsłużyć formularz zgodnie z
           RODO.
         </p>
@@ -41,14 +43,11 @@ export function CookieBanner() {
               window.localStorage.setItem(STORAGE_KEY, "accepted");
               window.dispatchEvent(new Event(EVENT_NAME));
             }}
-            className="cta-primary inline-flex rounded-full px-4 py-2.5 text-sm font-semibold transition"
+            className="button-base button-primary"
           >
             Akceptuję
           </button>
-          <Link
-            href="/polityka-prywatnosci"
-            className="cta-secondary inline-flex rounded-full px-4 py-2.5 text-sm text-slate-200 transition"
-          >
+          <Link href="/polityka-prywatnosci" className="button-base button-secondary">
             Polityka prywatności
           </Link>
         </div>
