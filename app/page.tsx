@@ -258,7 +258,7 @@ export default function HomePage() {
     <main className="bg-[var(--color-bg)]">
       <SiteHeader />
 
-      <section className="bg-[var(--color-bg)] pb-20 pt-28">
+      <section className="bg-[var(--color-bg)] pb-[72px] pt-[88px]">
         <div className="site-container grid items-center gap-10 lg:grid-cols-[55fr_45fr]">
           <Reveal className="max-w-[620px]">
             <span className="inline-flex items-center gap-[6px] rounded-[4px] bg-[var(--color-accent-light)] px-[14px] py-[6px] text-[12px] font-medium leading-[1.5] text-[var(--color-accent)]">
@@ -318,7 +318,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[var(--color-bg-dark)] py-14">
+      <section className="bg-[var(--color-bg-dark)] py-12">
         <div className="site-container">
           <div className="grid grid-cols-2 overflow-hidden rounded-[8px] border border-[rgba(255,255,255,0.08)] md:grid-cols-4">
             {stripStats.map((stat, index) => (
@@ -351,10 +351,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="zalety" className="site-section bg-[var(--color-bg-alt)]">
+      <section id="zalety" className="bg-[var(--color-bg-alt)] pb-[72px] pt-[56px]">
         <div className="site-container">
           <Reveal className="max-w-[680px]">
-            <p className="section-eyebrow">Dlaczego klienci nam ufają</p>
             <h2 className="section-title">Dlaczego klienci nam ufają</h2>
           </Reveal>
 
@@ -374,7 +373,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-[var(--color-border)] bg-[var(--color-bg)] py-8">
+      <section className="border-y border-[var(--color-border)] bg-[var(--color-bg)] py-6">
         <div className="site-container flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <p className="text-[11px] uppercase tracking-[0.07em] text-[var(--color-text-muted)]">
             Autoryzowany partner:
@@ -395,10 +394,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="uslugi" className="site-section bg-[var(--color-bg)]">
+      <section id="uslugi" className="bg-[var(--color-bg)] pb-14 pt-14">
         <div className="site-container">
           <Reveal className="max-w-[720px]">
-            <p className="section-eyebrow">Usługi i ceny</p>
             <h2 className="section-title">Usługi i ceny</h2>
             <p className="section-subtitle">
               Przejrzyste stawki startowe — bez ukrytych kosztów. Dokładna wycena po bezpłatnej
@@ -450,7 +448,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="realizacje" className="site-section bg-[var(--color-bg-alt)]">
+      <section id="realizacje" className="bg-[var(--color-bg-alt)] pb-[72px] pt-[56px]">
         <div className="site-container">
           <Reveal>
             <ShowcaseSlider items={showcases} />
@@ -458,7 +456,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="site-section bg-[var(--color-bg-dark)]">
+      <section className="bg-[var(--color-bg-dark)] pb-16 pt-12">
         <div className="site-container">
           <Reveal className="max-w-[720px]">
             <h2 className="section-title section-title-dark">Co mówią nasi klienci</h2>
