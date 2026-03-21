@@ -53,12 +53,14 @@ const services = [
     title: "Montaż kotła gazowego",
     description: "Kompleksowa instalacja, próba szczelności i pierwsze uruchomienie urządzenia.",
     price: "1 800 PLN",
+    href: "/usluga",
   },
   {
     category: "Serwis",
     title: "Przegląd okresowy",
     description: "Diagnostyka, czyszczenie i regulacja pracy kotła dla bezpiecznej eksploatacji.",
     price: "350 PLN",
+    href: "/usluga",
   },
   {
     category: "OZE",
@@ -66,6 +68,7 @@ const services = [
     description:
       "Dobór systemu, montaż i wsparcie przy przygotowaniu inwestycji oraz formalności.",
     price: "14 000 PLN",
+    href: "/usluga",
   },
   {
     category: "Serwis awaryjny",
@@ -74,6 +77,7 @@ const services = [
       "Natychmiastowa reakcja przy awarii, wycieku lub nagłym zatrzymaniu instalacji grzewczej.",
     price: "250 PLN",
     emergency: true,
+    href: "/usluga",
   },
 ];
 
@@ -90,6 +94,7 @@ const showcases = [
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80",
     afterImage:
       "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=80",
+    href: "/realizacja",
   },
 ];
 
@@ -113,7 +118,7 @@ const reviews = [
       "Wymiana kotła na pompę ciepła zrealizowana w 3 dni, bez chaosu i niespodzianek. Dofinansowanie dopięte razem z ekipą.",
     author: "Piotr i Monika R.",
     area: "Kraków, Bieżanów",
-    source: "Booksy",
+    source: "Google Maps",
   },
 ];
 
@@ -416,7 +421,14 @@ export default function HomePage() {
                   >
                     {service.category}
                   </span>
-                  <h3 className="card-title mt-3">{service.title}</h3>
+                  <h3 className="card-title mt-3">
+                    <Link
+                      href={service.href}
+                      className="transition duration-200 ease-in-out hover:text-[var(--color-accent)]"
+                    >
+                      {service.title}
+                    </Link>
+                  </h3>
                   <p className="card-copy mt-2">{service.description}</p>
 
                   <div className="my-5 border-t border-[var(--color-border)]" />
@@ -432,9 +444,12 @@ export default function HomePage() {
                         {service.price}
                       </p>
                     </div>
-                    <a href="#kontakt" className="button-base button-secondary px-4 py-[10px] text-[12px]">
-                      Zapytaj o wycenę
-                    </a>
+                    <Link
+                      href={service.href}
+                      className="button-base button-secondary px-4 py-[10px] text-[12px]"
+                    >
+                      Zobacz usługę
+                    </Link>
                   </div>
                 </div>
               </Reveal>
@@ -456,7 +471,7 @@ export default function HomePage() {
           <Reveal className="max-w-[720px]">
             <h2 className="section-title section-title-dark">Co mówią nasi klienci</h2>
             <p className="mt-3 text-[14px] leading-[1.5] text-[rgba(255,255,255,0.55)]">
-              Ponad 280 opinii na Google i Booksy. Średnia 4.9/5.
+              Ponad 280 opinii na Google. Średnia 4.9/5.
             </p>
           </Reveal>
 

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type ShowcaseItem = {
   title: string;
@@ -8,6 +9,7 @@ type ShowcaseItem = {
   after: string;
   beforeImage: string;
   afterImage: string;
+  href: string;
 };
 
 type ShowcaseSliderProps = {
@@ -57,7 +59,14 @@ export function ShowcaseSlider({ items }: ShowcaseSliderProps) {
           <span className="inline-flex rounded-[4px] bg-[var(--color-accent-light)] px-3 py-1 text-[11px] leading-[1.5] text-[var(--color-accent)]">
             {activeItem.meta}
           </span>
-          <h3 className="card-title mt-4">{activeItem.title}</h3>
+          <h3 className="card-title mt-4">
+            <Link
+              href={activeItem.href}
+              className="transition duration-200 ease-in-out hover:text-[var(--color-accent)]"
+            >
+              {activeItem.title}
+            </Link>
+          </h3>
           <p className="mt-3 text-[13px] leading-[1.5] text-[var(--color-text-muted)]">
             {activeItem.timeline}
           </p>
@@ -75,6 +84,12 @@ export function ShowcaseSlider({ items }: ShowcaseSliderProps) {
               </p>
               <p className="card-copy mt-2">{activeItem.after}</p>
             </div>
+          </div>
+
+          <div className="mt-5">
+            <Link href={activeItem.href} className="button-base button-secondary px-4 py-[10px] text-[12px]">
+              Zobacz realizację
+            </Link>
           </div>
         </div>
       </div>
