@@ -45,9 +45,9 @@ export function ContactForm() {
   const canSubmit = phoneValid && form.name.trim().length > 1 && form.consent;
 
   return (
-    <div className="card-surface p-9 max-md:p-6">
+    <div className="card-surface p-8 max-md:p-5">
       <form
-        className="space-y-6"
+        className="space-y-5"
         onSubmit={(event) => {
           event.preventDefault();
           setAttempted(true);
@@ -61,7 +61,7 @@ export function ContactForm() {
           setForm(initialState);
         }}
       >
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-2">
           <label className="block">
             <p className="form-label">Imię</p>
             <input

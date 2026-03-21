@@ -258,9 +258,9 @@ export default function HomePage() {
     <main className="bg-[var(--color-bg)]">
       <SiteHeader />
 
-      <section className="bg-[var(--color-bg)] pb-24 pt-32">
-        <div className="site-container grid items-center gap-12 lg:grid-cols-[55fr_45fr]">
-          <Reveal className="max-w-[640px]">
+      <section className="bg-[var(--color-bg)] pb-20 pt-28">
+        <div className="site-container grid items-center gap-10 lg:grid-cols-[55fr_45fr]">
+          <Reveal className="max-w-[620px]">
             <span className="inline-flex items-center gap-[6px] rounded-[4px] bg-[var(--color-accent-light)] px-[14px] py-[6px] text-[12px] font-medium leading-[1.5] text-[var(--color-accent)]">
               <span aria-hidden="true">✓</span>
               Autoryzowany partner Viessmann &amp; Vaillant
@@ -273,7 +273,7 @@ export default function HomePage() {
               Profesjonalny montaż i serwis kotłów w Krakowie — ponad 20 lat doświadczenia.
             </p>
 
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <a href="#kontakt" className="button-base button-primary px-7 py-[14px]">
                 Bezpłatna wycena w 2 godz. →
               </a>
@@ -282,7 +282,7 @@ export default function HomePage() {
               </a>
             </div>
 
-            <div className="mt-12 flex flex-wrap items-center gap-2">
+            <div className="mt-10 flex flex-wrap items-center gap-2">
               {heroStats.map((stat, index) => (
                 <div key={stat.label} className="flex items-center gap-2">
                   <div className="flex items-baseline gap-1">
@@ -303,7 +303,7 @@ export default function HomePage() {
 
           <Reveal delay={0.08}>
             <div className="overflow-hidden rounded-[8px] border border-[var(--color-border)] bg-[var(--color-bg-card)]">
-              <div className="relative aspect-[16/9] min-h-[520px] max-md:min-h-0">
+              <div className="relative aspect-[16/9] min-h-[460px] max-md:min-h-0">
                 <Image
                   src="/images/hero-technician.jpg"
                   alt="Technik Wodny Standart przy instalacji grzewczej"
@@ -318,13 +318,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[var(--color-bg-dark)] py-16">
+      <section className="bg-[var(--color-bg-dark)] py-14">
         <div className="site-container">
           <div className="grid grid-cols-2 overflow-hidden rounded-[8px] border border-[rgba(255,255,255,0.08)] md:grid-cols-4">
             {stripStats.map((stat, index) => (
               <div
                 key={stat.label}
-                className={`flex flex-col items-center justify-center px-6 py-8 text-center ${
+                className={`flex flex-col items-center justify-center px-5 py-7 text-center ${
                   index === 1
                     ? "border-l border-[rgba(255,255,255,0.1)] md:border-l"
                     : index === 2
@@ -358,19 +358,15 @@ export default function HomePage() {
             <h2 className="section-title">Dlaczego klienci nam ufają</h2>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {benefits.map((benefit, index) => (
               <Reveal key={benefit.title} delay={0.08 * index}>
-                <div className="card-surface h-full p-7">
+                <div className="card-surface h-full p-6">
                   <div className="flex h-10 w-10 items-center justify-center rounded-[8px] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
                     <BenefitIcon type={benefit.icon} />
                   </div>
-                  <h3 className="mt-4 font-[var(--font-heading)] text-[20px] font-bold leading-[1.3] text-[var(--color-text)]">
-                    {benefit.title}
-                  </h3>
-                  <p className="mt-2 text-[14px] font-light leading-[1.6] text-[var(--color-text-muted)]">
-                    {benefit.description}
-                  </p>
+                  <h3 className="card-title mt-4">{benefit.title}</h3>
+                  <p className="card-copy mt-2">{benefit.description}</p>
                 </div>
               </Reveal>
             ))}
@@ -378,7 +374,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-[var(--color-border)] bg-[var(--color-bg)] py-12">
+      <section className="border-y border-[var(--color-border)] bg-[var(--color-bg)] py-8">
         <div className="site-container flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <p className="text-[11px] uppercase tracking-[0.07em] text-[var(--color-text-muted)]">
             Autoryzowany partner:
@@ -410,11 +406,11 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
             {services.map((service, index) => (
               <Reveal key={service.title} delay={0.08 * index}>
                 <div
-                  className={`card-surface card-hover h-full p-7 ${
+                  className={`card-surface card-hover flex h-full flex-col p-6 ${
                     service.emergency ? "border-l-[3px] border-l-[var(--color-orange)]" : ""
                   }`}
                 >
@@ -427,16 +423,12 @@ export default function HomePage() {
                   >
                     {service.category}
                   </span>
-                  <h3 className="mt-3 font-[var(--font-heading)] text-[20px] font-bold leading-[1.3] text-[var(--color-text)]">
-                    {service.title}
-                  </h3>
-                  <p className="mt-2 text-[14px] font-light leading-[1.6] text-[var(--color-text-muted)]">
-                    {service.description}
-                  </p>
+                  <h3 className="card-title mt-3">{service.title}</h3>
+                  <p className="card-copy mt-2">{service.description}</p>
 
                   <div className="my-5 border-t border-[var(--color-border)]" />
 
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                  <div className="mt-auto flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                     <div>
                       <p className="price-label">Cena od</p>
                       <p
@@ -475,22 +467,22 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {reviews.map((review, index) => (
               <Reveal key={review.author} delay={0.08 * index}>
-                <div className="rounded-[8px] border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.06)] p-7">
+                <div className="flex h-full flex-col rounded-[8px] border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.06)] p-6">
                   <p className="text-[16px] leading-none text-[#F59E0B]">★★★★★</p>
-                  <p className="mt-3 text-[15px] font-light leading-[1.7] text-[rgba(255,255,255,0.8)]">
+                  <p className="mt-3 text-[15px] font-light leading-[1.65] text-[rgba(255,255,255,0.8)]">
                     “{review.text}”
                   </p>
                   <div className="my-4 border-t border-[rgba(255,255,255,0.08)]" />
-                  <p className="text-[14px] font-medium leading-[1.5] text-white">{review.author}</p>
-                  <p className="mt-[2px] text-[12px] leading-[1.5] text-[rgba(255,255,255,0.45)]">
-                    {review.area}
-                  </p>
-                  <p className="text-[12px] leading-[1.5] text-[rgba(255,255,255,0.35)]">
-                    {review.source}
-                  </p>
+                  <div className="mt-auto">
+                    <p className="text-[14px] font-medium leading-[1.5] text-white">{review.author}</p>
+                    <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[12px] leading-[1.5] text-[rgba(255,255,255,0.42)]">
+                      <span>{review.area}</span>
+                      <span>{review.source}</span>
+                    </div>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -509,7 +501,7 @@ export default function HomePage() {
 
       <section id="kontakt" className="site-section bg-[var(--color-bg-alt)]">
         <div className="site-container">
-          <div className="grid gap-8 lg:grid-cols-[40fr_60fr] lg:items-start">
+          <div className="grid gap-6 lg:grid-cols-[40fr_60fr] lg:items-start">
             <Reveal>
               <div className="max-w-[420px]">
                 <h2 className="font-[var(--font-heading)] text-[28px] font-bold leading-[1.2] text-[var(--color-text)]">
@@ -519,7 +511,7 @@ export default function HomePage() {
                   Zostaw numer — oddzwaniamy zwykle jeszcze tego samego dnia w godzinach pracy.
                 </p>
 
-                <div className="mt-8 space-y-6">
+                <div className="mt-7 space-y-5">
                   <div className="flex items-start gap-3">
                     <ContactInfoIcon type="clock" />
                     <p className="text-[14px] leading-[1.6] text-[var(--color-text)]">
@@ -549,7 +541,7 @@ export default function HomePage() {
               </div>
             </Reveal>
 
-            <div className="space-y-6">
+            <div className="space-y-5">
               <Reveal delay={0.08}>
                 <ContactForm />
               </Reveal>
@@ -561,9 +553,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="bg-[var(--color-bg-dark)] pb-8 pt-16">
+      <footer className="bg-[var(--color-bg-dark)] pb-6 pt-14">
         <div className="site-container">
-          <div className="grid gap-10 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-3">
             <div>
               <p className="font-[var(--font-heading)] text-[20px] font-bold leading-[1.2] text-white">
                 Wodny Standart
@@ -618,10 +610,13 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="mt-10 flex flex-col gap-4 border-t border-[rgba(255,255,255,0.08)] pt-6 text-[12px] text-[rgba(255,255,255,0.3)] md:flex-row md:items-center md:justify-between">
+          <div className="mt-8 flex flex-col gap-4 border-t border-[rgba(255,255,255,0.08)] pt-6 text-[12px] text-[rgba(255,255,255,0.3)] md:flex-row md:items-center md:justify-between">
             <p>© 2026 Wodny Standart. Wszelkie prawa zastrzeżone.</p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/polityka-prywatnosci" className="transition duration-150 ease-in-out hover:text-white">
+              <Link
+                href="/polityka-prywatnosci"
+                className="transition duration-150 ease-in-out hover:text-white"
+              >
                 Polityka prywatności
               </Link>
               <Link href="/regulamin" className="transition duration-150 ease-in-out hover:text-white">

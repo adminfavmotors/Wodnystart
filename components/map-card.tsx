@@ -43,14 +43,14 @@ function InfoIcon({ type }: { type: "address" | "hours" | "service" }) {
 
 export function MapCard() {
   return (
-    <div className="card-surface overflow-hidden p-6 sm:p-8">
-      <div className="mb-6">
+    <div className="card-surface overflow-hidden p-6">
+      <div className="mb-5">
         <h3 className="font-[var(--font-heading)] text-[24px] font-bold leading-[1.2] text-[var(--color-text)]">
           Jesteśmy blisko i reagujemy szybko
         </h3>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-3 md:grid-cols-3">
         <div className="rounded-[8px] border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
           <div className="flex items-start gap-3">
             <InfoIcon type="address" />
