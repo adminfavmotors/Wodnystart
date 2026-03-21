@@ -258,15 +258,10 @@ export default function HomePage() {
     <main className="bg-[var(--color-bg)]">
       <SiteHeader />
 
-      <section className="bg-[var(--color-bg)] pb-[72px] pt-[48px]">
+      <section className="bg-[var(--color-bg)] pb-[72px] pt-[24px]">
         <div className="site-container grid items-center gap-10 lg:grid-cols-[55fr_45fr]">
           <Reveal className="max-w-[620px]">
-            <span className="inline-flex items-center gap-[6px] rounded-[4px] bg-[var(--color-accent-light)] px-[14px] py-[6px] text-[12px] font-medium leading-[1.5] text-[var(--color-accent)]">
-              <span aria-hidden="true">✓</span>
-              Autoryzowany partner Viessmann &amp; Vaillant
-            </span>
-
-            <h1 className="mt-5 font-[var(--font-heading)] text-[60px] font-bold leading-[1.1] tracking-[-0.02em] text-[var(--color-text)] max-md:text-[42px]">
+            <h1 className="font-[var(--font-heading)] text-[60px] font-bold leading-[1.1] tracking-[-0.02em] text-[var(--color-text)] max-md:text-[42px]">
               Inteligentne ciepło dla Twojego domu
             </h1>
             <p className="mt-4 max-w-[460px] text-[16px] font-light leading-[1.7] text-[var(--color-text-muted)]">
