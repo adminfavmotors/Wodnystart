@@ -258,7 +258,7 @@ export default function HomePage() {
     <main className="bg-[var(--color-bg)]">
       <SiteHeader />
 
-      <section className="bg-[var(--color-bg)] pb-[72px] pt-[88px]">
+      <section className="bg-[var(--color-bg)] pb-[72px] pt-[48px]">
         <div className="site-container grid items-center gap-10 lg:grid-cols-[55fr_45fr]">
           <Reveal className="max-w-[620px]">
             <span className="inline-flex items-center gap-[6px] rounded-[4px] bg-[var(--color-accent-light)] px-[14px] py-[6px] text-[12px] font-medium leading-[1.5] text-[var(--color-accent)]">
