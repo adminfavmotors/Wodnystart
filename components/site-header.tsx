@@ -4,10 +4,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navItems = [
-  { label: "Zalety", href: "#zalety" },
-  { label: "Usługi", href: "#uslugi" },
-  { label: "Realizacje", href: "#realizacje" },
-  { label: "Kontakt", href: "#kontakt" },
+  { label: "Zalety", href: "/#zalety" },
+  { label: "Usługi", href: "/usluga" },
+  { label: "Realizacje", href: "/realizacja" },
+  { label: "Kontakt", href: "/#kontakt" },
 ];
 
 export function SiteHeader() {
@@ -47,9 +47,9 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="nav-link">
+            <Link key={item.href} href={item.href} className="nav-link">
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -60,9 +60,9 @@ export function SiteHeader() {
           >
             +48 12 345 67 89
           </a>
-          <a href="#kontakt" className="button-base button-primary px-5">
+          <Link href="/#kontakt" className="button-base button-primary px-5">
             Bezpłatna wycena
-          </a>
+          </Link>
         </div>
 
         <button
@@ -88,19 +88,23 @@ export function SiteHeader() {
           <div className="absolute left-5 right-5 top-[72px] rounded-[8px] border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6 shadow-[0_18px_48px_rgba(15,25,35,0.08)] md:hidden">
             <nav className="flex flex-col gap-4">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
                   className="nav-link"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </nav>
-            <a href="#kontakt" onClick={() => setMobileOpen(false)} className="button-base button-primary mt-6 w-full">
+            <Link
+              href="/#kontakt"
+              onClick={() => setMobileOpen(false)}
+              className="button-base button-primary mt-6 w-full"
+            >
               Bezpłatna wycena
-            </a>
+            </Link>
           </div>
         ) : null}
       </div>
