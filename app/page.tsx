@@ -373,34 +373,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-[var(--color-border)] bg-[var(--color-bg)] py-8">
-        <div className="site-container">
-          <div className="rounded-[8px] border border-[var(--color-border)] bg-[linear-gradient(135deg,var(--color-accent-light),rgba(255,255,255,0.92))] p-6">
-            <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-              <div className="max-w-[320px]">
-                <p className="text-[11px] uppercase tracking-[0.07em] text-[var(--color-accent)]">
-                  Autoryzowany partner
-                </p>
-                <p className="mt-2 text-[14px] leading-[1.6] text-[var(--color-text-muted)]">
-                  Pracujemy na sprawdzonych markach i autoryzowanych rozwiązaniach dla nowoczesnych
-                  instalacji grzewczych.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-3 text-[var(--color-text)]">
-                <span className="rounded-[8px] border border-[rgba(29,95,166,0.14)] bg-[var(--color-bg-card)] px-4 py-3 font-[var(--font-heading)] text-[20px] font-bold tracking-[0.04em] shadow-[0_10px_24px_rgba(15,25,35,0.05)] transition duration-200 ease-in-out hover:-translate-y-[1px] hover:border-[var(--color-accent)]">
-                  VIESSMANN
-                </span>
-                <span className="text-[var(--color-accent)]">/</span>
-                <span className="rounded-[8px] border border-[rgba(29,95,166,0.14)] bg-[var(--color-bg-card)] px-4 py-3 font-[var(--font-heading)] text-[20px] font-bold tracking-[0.04em] shadow-[0_10px_24px_rgba(15,25,35,0.05)] transition duration-200 ease-in-out hover:-translate-y-[1px] hover:border-[var(--color-accent)]">
-                  VAILLANT
-                </span>
-                <span className="text-[var(--color-accent)]">/</span>
-                <span className="rounded-[8px] border border-[rgba(29,95,166,0.14)] bg-[var(--color-bg-card)] px-4 py-3 font-[var(--font-heading)] text-[16px] font-bold tracking-[0.04em] shadow-[0_10px_24px_rgba(15,25,35,0.05)] transition duration-200 ease-in-out hover:-translate-y-[1px] hover:border-[var(--color-accent)]">
-                  WORCESTER BOSCH
-                </span>
-              </div>
-            </div>
+      <section className="border-y border-[var(--color-border)] bg-[var(--color-bg)] py-6">
+        <div className="site-container flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <p className="text-[11px] uppercase tracking-[0.07em] text-[var(--color-text-muted)]">
+            Autoryzowany partner:
+          </p>
+          <div className="flex flex-wrap items-center gap-4 text-[var(--color-text)]">
+            <span className="font-[var(--font-heading)] text-[20px] font-bold tracking-[0.04em] opacity-45 transition duration-200 ease-in-out hover:opacity-80">
+              VIESSMANN
+            </span>
+            <span className="text-[var(--color-border)]">/</span>
+            <span className="font-[var(--font-heading)] text-[20px] font-bold tracking-[0.04em] opacity-45 transition duration-200 ease-in-out hover:opacity-80">
+              VAILLANT
+            </span>
+            <span className="text-[var(--color-border)]">/</span>
+            <span className="font-[var(--font-heading)] text-[16px] font-bold tracking-[0.04em] opacity-45 transition duration-200 ease-in-out hover:opacity-80">
+              WORCESTER BOSCH
+            </span>
           </div>
         </div>
       </section>
