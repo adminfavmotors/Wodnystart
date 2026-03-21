@@ -5,6 +5,7 @@ import { CookieBanner } from "../components/cookie-banner";
 import { MapCard } from "../components/map-card";
 import { Reveal } from "../components/reveal";
 import { ShowcaseSlider } from "../components/showcase-slider";
+import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
 
 const heroStats = [
@@ -120,13 +121,6 @@ const reviews = [
     area: "Kraków, Bieżanów",
     source: "Google Maps",
   },
-];
-
-const footerLinks = [
-  { label: "Zalety", href: "#zalety" },
-  { label: "Usługi", href: "#uslugi" },
-  { label: "Realizacje", href: "#realizacje" },
-  { label: "Kontakt", href: "#kontakt" },
 ];
 
 function BenefitIcon({ type }: { type: string }) {
@@ -561,79 +555,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="bg-[var(--color-bg-dark)] pb-6 pt-14">
-        <div className="site-container">
-          <div className="grid gap-8 md:grid-cols-3">
-            <div>
-              <p className="font-[var(--font-heading)] text-[20px] font-bold leading-[1.2] text-white">
-                Wodny Standart
-              </p>
-              <p className="mt-4 max-w-[220px] text-[13px] leading-[1.6] text-[rgba(255,255,255,0.45)]">
-                Inteligentne ciepło dla domu w Krakowie. Montaż, serwis i nowoczesne instalacje
-                grzewcze.
-              </p>
-            </div>
-
-            <div>
-              <p className="mb-3 text-[11px] uppercase tracking-[0.07em] text-[rgba(255,255,255,0.35)]">
-                Na skróty
-              </p>
-              <div className="flex flex-col">
-                {footerLinks.map((link) => (
-                  <a key={link.href} href={link.href} className="footer-link">
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <p className="mb-3 text-[11px] uppercase tracking-[0.07em] text-[rgba(255,255,255,0.35)]">
-                Kontakt
-              </p>
-              <div className="space-y-3 text-[rgba(255,255,255,0.6)]">
-                <div className="flex items-center gap-3 text-[14px]">
-                  <ContactInfoIcon type="phone" />
-                  <a
-                    href="tel:+48123456789"
-                    className="transition duration-150 ease-in-out hover:text-white"
-                  >
-                    +48 12 345 67 89
-                  </a>
-                </div>
-                <div className="flex items-center gap-3 text-[14px]">
-                  <ContactInfoIcon type="mail" />
-                  <a
-                    href="mailto:biuro@wodnystandart.pl"
-                    className="transition duration-150 ease-in-out hover:text-white"
-                  >
-                    biuro@wodnystandart.pl
-                  </a>
-                </div>
-                <div className="flex items-center gap-3 text-[14px]">
-                  <ContactInfoIcon type="location" />
-                  <span>ul. Wielicka 92, Kraków</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 flex flex-col gap-4 border-t border-[rgba(255,255,255,0.08)] pt-6 text-[12px] text-[rgba(255,255,255,0.3)] md:flex-row md:items-center md:justify-between">
-            <p>© 2026 Wodny Standart. Wszelkie prawa zastrzeżone.</p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/polityka-prywatnosci"
-                className="transition duration-150 ease-in-out hover:text-white"
-              >
-                Polityka prywatności
-              </Link>
-              <Link href="/regulamin" className="transition duration-150 ease-in-out hover:text-white">
-                Regulamin
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
 
       <CookieBanner />
     </main>

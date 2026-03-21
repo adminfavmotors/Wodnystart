@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SiteFooter } from "../../components/site-footer";
 import { SiteHeader } from "../../components/site-header";
 
 const pricingCards = [
@@ -74,7 +75,6 @@ export default function ServicePage() {
         <div className="site-container">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
             <div className="max-w-[760px]">
-              <p className="section-eyebrow">Nasze usługi</p>
               <h1 className="font-[var(--font-heading)] text-[46px] font-bold leading-[1.1] tracking-[-0.02em] text-[var(--color-text)] max-md:text-[34px]">
                 Nasze Usługi – Cennik 2026
               </h1>
@@ -94,7 +94,6 @@ export default function ServicePage() {
             </div>
 
             <div className="card-surface p-6">
-              <p className="section-eyebrow">Kraków</p>
               <p className="text-[15px] font-light leading-[1.7] text-[var(--color-text-muted)]">
                 Realizujemy montaże, modernizacje i serwis z naciskiem na bezpieczeństwo,
                 energooszczędność i szybki czas reakcji na terenie miasta i okolic.
@@ -107,7 +106,6 @@ export default function ServicePage() {
       <section className="bg-[var(--color-bg-alt)] py-14">
         <div className="site-container">
           <div className="mb-8 max-w-[760px]">
-            <p className="section-eyebrow">Cennik 2026</p>
             <h2 className="section-title">Usługi i ceny orientacyjne</h2>
             <p className="section-subtitle">
               Ceny mają charakter orientacyjny i pomagają szybko ocenić budżet inwestycji. Dokładna
@@ -153,7 +151,6 @@ export default function ServicePage() {
       <section className="bg-[var(--color-bg)] py-14">
         <div className="site-container">
           <div className="mb-8 max-w-[760px]">
-            <p className="section-eyebrow">Opis usług</p>
             <h2 className="section-title">Najważniejsze kierunki prac</h2>
             <p className="section-subtitle">
               Poniższe bloki porządkują najczęściej wybierane usługi i pokazują, czego mogą
@@ -165,7 +162,9 @@ export default function ServicePage() {
             {serviceDetails.map((item) => (
               <div
                 key={item.title}
-                className={`card-surface p-6 ${item.emergency ? "border-l-[3px] border-l-[var(--color-orange)]" : ""}`}
+                className={`card-surface p-6 ${
+                  item.emergency ? "border-l-[3px] border-l-[var(--color-orange)]" : ""
+                }`}
               >
                 <h3 className="card-title">{item.title}</h3>
                 <p className="card-copy mt-3">{item.description}</p>
@@ -178,7 +177,6 @@ export default function ServicePage() {
       <section className="bg-[var(--color-bg-dark)] py-14">
         <div className="site-container">
           <div className="rounded-[8px] border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.05)] p-8">
-            <p className="section-eyebrow text-[rgba(255,255,255,0.55)]">Kontakt</p>
             <h2 className="section-title section-title-dark">Potrzebujesz wyceny lub szybkiej konsultacji?</h2>
             <p className="mt-4 max-w-[720px] text-[15px] font-light leading-[1.7] text-[rgba(255,255,255,0.72)]">
               Napisz lub zadzwoń. Dobierzemy właściwe rozwiązanie do Twojego domu i przygotujemy
@@ -196,6 +194,8 @@ export default function ServicePage() {
           </div>
         </div>
       </section>
+
+      <SiteFooter />
     </main>
   );
 }
