@@ -1,70 +1,66 @@
 import Link from "next/link";
 import { SiteHeader } from "../../components/site-header";
 
-const services = [
+const pricingCards = [
   {
-    name: "Montaż kotłów gazowych",
-    marketing:
+    title: "Montaż kotłów gazowych",
+    description:
       "Instalacja nowoczesnych kotłów kondensacyjnych (Viessmann, Vaillant, Bosch). Pełna konfiguracja automatyki i test szczelności.",
     price: "od 1 800 PLN",
   },
   {
-    name: "Montaż pomp ciepła",
-    marketing:
+    title: "Montaż pomp ciepła",
+    description:
       "Kompleksowe systemy powietrze-woda. Pomoc w formalnościach i dotacjach z programu „Czyste Powietrze”.",
     price: "od 14 000 PLN",
   },
   {
-    name: "Przeglądy i serwis",
-    marketing:
+    title: "Przeglądy i serwis",
+    description:
       "Coroczna konserwacja: czyszczenie, analiza spalin i optymalizacja spalania. Przedłużamy życie Twojego kotła.",
     price: "350 – 550 PLN",
   },
   {
-    name: "Ogrzewanie podłogowe",
-    marketing:
+    title: "Ogrzewanie podłogowe",
+    description:
       "Projekt i wykonanie systemów płaszczyznowych. Komfort ciepłych stóp i oszczędność energii do 20%.",
     price: "od 140 PLN / m²",
   },
   {
-    name: "Serwis awaryjny 24/7",
-    marketing:
+    title: "Serwis awaryjny 24/7",
+    description:
       "Błyskawiczna pomoc w przypadku usterki na terenie Krakowa. Diagnoza i naprawa w dniu zgłoszenia.",
     price: "od 250 PLN",
     emergency: true,
   },
   {
-    name: "Modernizacja kotłowni",
-    marketing:
+    title: "Modernizacja kotłowni",
+    description:
       "Wymiana starych urządzeń na ekologiczne źródła ciepła. Podniesienie klasy energetycznej budynku.",
     price: "Wycena indywidualna",
   },
 ];
 
-const serviceCards = [
+const serviceDetails = [
   {
     title: "Montaż kotłów",
-    text:
+    description:
       "Zapewniamy profesjonalne podłączenie urządzeń grzewczych zgodnie z najnowszymi normami bezpieczeństwa. Jako autoryzowany instalator w Krakowie, oferujemy szybki termin realizacji i pełną dokumentację.",
-    accent: "Szybki termin i komplet dokumentów",
   },
   {
     title: "Pompy ciepła",
-    text:
+    description:
       "Ekologiczne i najtańsze w eksploatacji źródło ciepła. Dobieramy moc urządzenia do realnego zapotrzebowania Twojego domu, dbając o maksymalną efektywność w małopolskim klimacie.",
-    accent: "Pomoc przy „Czystym Powietrzu”",
   },
   {
     title: "Serwis i przeglądy",
-    text:
+    description:
       "Nie czekaj na mrozy. Regularny przegląd to mniejsze zużycie paliwa i pewność, że Twoja instalacja jest bezpieczna dla domowników.",
-    accent: "Bezpieczeństwo i dłuższa żywotność urządzeń",
   },
   {
     title: "Pogotowie techniczne",
-    text:
+    description:
       "Awaria w nocy? Nasz zespół techników z ul. Wielickiej 92 jest w gotowości 24 godziny na dobę, 7 dni w tygodniu.",
-    accent: "Interwencje awaryjne na terenie Krakowa",
     emergency: true,
   },
 ];
@@ -80,12 +76,11 @@ export default function ServicePage() {
             <div className="max-w-[760px]">
               <p className="section-eyebrow">Nasze usługi</p>
               <h1 className="font-[var(--font-heading)] text-[46px] font-bold leading-[1.1] tracking-[-0.02em] text-[var(--color-text)] max-md:text-[34px]">
-                Instalacje grzewcze i serwis dla domów w Krakowie
+                Nasze Usługi – Cennik 2026
               </h1>
               <p className="mt-4 max-w-[620px] text-[16px] font-light leading-[1.7] text-[var(--color-text-muted)]">
-                Łączymy montaż, modernizacje i serwis w jednym miejscu. Pracujemy na sprawdzonych
-                rozwiązaniach, szybko reagujemy na zgłoszenia i przygotowujemy wyceny dopasowane do
-                realnych potrzeb budynku.
+                Poniżej znajdziesz orientacyjne ceny i najważniejsze kierunki usług, które
+                realizujemy dla domów i modernizowanych kotłowni na terenie Krakowa.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -99,10 +94,10 @@ export default function ServicePage() {
             </div>
 
             <div className="card-surface p-6">
-              <p className="section-eyebrow">Kraków 2026</p>
+              <p className="section-eyebrow">Kraków</p>
               <p className="text-[15px] font-light leading-[1.7] text-[var(--color-text-muted)]">
-                Oferujemy montaż, serwis i modernizacje kotłowni z naciskiem na bezpieczeństwo,
-                energooszczędność i pełne wsparcie przy inwestycjach w nowoczesne źródła ciepła.
+                Realizujemy montaże, modernizacje i serwis z naciskiem na bezpieczeństwo,
+                energooszczędność i szybki czas reakcji na terenie miasta i okolic.
               </p>
             </div>
           </div>
@@ -113,23 +108,23 @@ export default function ServicePage() {
         <div className="site-container">
           <div className="mb-8 max-w-[760px]">
             <p className="section-eyebrow">Cennik 2026</p>
-            <h2 className="section-title">Nasze usługi i orientacyjne ceny</h2>
+            <h2 className="section-title">Usługi i ceny orientacyjne</h2>
             <p className="section-subtitle">
-              Przejrzyste widełki cenowe pomagają szybciej ocenić zakres inwestycji. Finalna wycena
-              zależy od warunków na miejscu, typu urządzenia i zakresu prac.
+              Ceny mają charakter orientacyjny i pomagają szybko ocenić budżet inwestycji. Dokładna
+              wycena zależy od typu urządzenia, zakresu prac i warunków technicznych na miejscu.
             </p>
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {services.map((service) => (
+            {pricingCards.map((service) => (
               <div
-                key={service.name}
+                key={service.title}
                 className={`card-surface flex h-full flex-col p-6 ${
                   service.emergency ? "border-l-[3px] border-l-[var(--color-orange)]" : ""
                 }`}
               >
                 <div className="flex items-start justify-between gap-4">
-                  <h3 className="card-title">{service.name}</h3>
+                  <h3 className="card-title">{service.title}</h3>
                   {service.emergency ? (
                     <span className="rounded-[4px] bg-[rgba(224,106,27,0.1)] px-3 py-1 text-[10px] uppercase tracking-[0.07em] text-[var(--color-orange)]">
                       24/7
@@ -137,7 +132,7 @@ export default function ServicePage() {
                   ) : null}
                 </div>
 
-                <p className="card-copy mt-3">{service.marketing}</p>
+                <p className="card-copy mt-3">{service.description}</p>
 
                 <div className="mt-5 border-t border-[var(--color-border)] pt-4">
                   <p className="price-label">Cena brutto</p>
@@ -158,33 +153,22 @@ export default function ServicePage() {
       <section className="bg-[var(--color-bg)] py-14">
         <div className="site-container">
           <div className="mb-8 max-w-[760px]">
-            <p className="section-eyebrow">Najczęściej wybierane</p>
-            <h2 className="section-title">Usługi, o które klienci pytają najczęściej</h2>
+            <p className="section-eyebrow">Opis usług</p>
+            <h2 className="section-title">Najważniejsze kierunki prac</h2>
             <p className="section-subtitle">
-              Poniżej zebraliśmy najważniejsze kierunki prac, które realizujemy dla domów,
-              mieszkań i modernizowanych kotłowni na terenie Krakowa.
+              Poniższe bloki porządkują najczęściej wybierane usługi i pokazują, czego mogą
+              spodziewać się klienci na etapie montażu, serwisu i interwencji awaryjnej.
             </p>
           </div>
 
           <div className="grid gap-5 md:grid-cols-2">
-            {serviceCards.map((card) => (
+            {serviceDetails.map((item) => (
               <div
-                key={card.title}
-                className={`card-surface flex h-full flex-col p-6 ${
-                  card.emergency ? "border-l-[3px] border-l-[var(--color-orange)]" : ""
-                }`}
+                key={item.title}
+                className={`card-surface p-6 ${item.emergency ? "border-l-[3px] border-l-[var(--color-orange)]" : ""}`}
               >
-                <h3 className="card-title">{card.title}</h3>
-                <p className="card-copy mt-3">{card.text}</p>
-                <div className="mt-5 border-t border-[var(--color-border)] pt-4">
-                  <p
-                    className={`text-[13px] font-medium leading-[1.5] ${
-                      card.emergency ? "text-[var(--color-orange)]" : "text-[var(--color-accent)]"
-                    }`}
-                  >
-                    {card.accent}
-                  </p>
-                </div>
+                <h3 className="card-title">{item.title}</h3>
+                <p className="card-copy mt-3">{item.description}</p>
               </div>
             ))}
           </div>
@@ -194,11 +178,11 @@ export default function ServicePage() {
       <section className="bg-[var(--color-bg-dark)] py-14">
         <div className="site-container">
           <div className="rounded-[8px] border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.05)] p-8">
-            <p className="section-eyebrow text-[rgba(255,255,255,0.55)]">Konsultacja</p>
-            <h2 className="section-title section-title-dark">Nie wiesz, od czego zacząć?</h2>
+            <p className="section-eyebrow text-[rgba(255,255,255,0.55)]">Kontakt</p>
+            <h2 className="section-title section-title-dark">Potrzebujesz wyceny lub szybkiej konsultacji?</h2>
             <p className="mt-4 max-w-[720px] text-[15px] font-light leading-[1.7] text-[rgba(255,255,255,0.72)]">
-              Powiedz nam, czy planujesz nowy montaż, modernizację kotłowni, czy tylko przegląd.
-              Dobierzemy właściwe rozwiązanie i przygotujemy wycenę bez zbędnych etapów.
+              Napisz lub zadzwoń. Dobierzemy właściwe rozwiązanie do Twojego domu i przygotujemy
+              zakres prac odpowiedni dla nowego montażu, modernizacji lub pilnego serwisu.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
