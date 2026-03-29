@@ -50,7 +50,6 @@ const benefits = [
 
 const services = [
   {
-    category: "Montaż",
     title: "Montaż kotła gazowego",
     description:
       "Kompleksowa instalacja, próba szczelności i pierwsze uruchomienie urządzenia.",
@@ -67,7 +66,6 @@ const services = [
     ctaLabel: "Umów wycenę montażu",
   },
   {
-    category: "Serwis",
     title: "Przegląd okresowy",
     description:
       "Diagnostyka, czyszczenie i regulacja pracy kotła dla bezpiecznej eksploatacji.",
@@ -84,7 +82,6 @@ const services = [
     ctaLabel: "Zarezerwuj przegląd",
   },
   {
-    category: "OZE",
     title: "Instalacja pompy ciepła",
     description:
       "Dobór systemu, montaż i wsparcie przy przygotowaniu inwestycji oraz formalności.",
@@ -101,7 +98,6 @@ const services = [
     ctaLabel: "Sprawdź pompę ciepła",
   },
   {
-    category: "Serwis awaryjny",
     title: "Pogotowie gazowe 24/7",
     description:
       "Natychmiastowa reakcja przy awarii, wycieku lub nagłym zatrzymaniu instalacji grzewczej.",
@@ -481,7 +477,9 @@ export default function HomePage() {
       >
         <div className="site-container">
           <Reveal className="max-w-[680px]">
-            <h2 className="section-title">Dlaczego klienci nam ufają</h2>
+            <h2 className="section-title section-title-surface">
+              Dlaczego klienci nam ufają
+            </h2>
           </Reveal>
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -503,20 +501,14 @@ export default function HomePage() {
       </section>
 
       <section className="border-y border-[var(--color-border)] bg-[var(--color-bg)] py-6">
-        <div className="site-container flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-          <p className="text-[11px] uppercase tracking-[0.07em] text-[var(--color-text-muted)]">
-            Autoryzowany partner:
-          </p>
-          <div className="flex flex-wrap items-center gap-4 text-[var(--color-text)]">
-            <span className="font-[var(--font-heading)] text-[20px] font-bold tracking-[0.04em] opacity-45 transition duration-200 ease-in-out hover:opacity-80">
-              VIESSMANN
-            </span>
-            <span className="text-[var(--color-border)]">/</span>
-            <span className="font-[var(--font-heading)] text-[20px] font-bold tracking-[0.04em] opacity-45 transition duration-200 ease-in-out hover:opacity-80">
-              VAILLANT
-            </span>
-            <span className="text-[var(--color-border)]">/</span>
-            <span className="font-[var(--font-heading)] text-[16px] font-bold tracking-[0.04em] opacity-45 transition duration-200 ease-in-out hover:opacity-80">
+        <div className="site-container partner-strip">
+          <p className="partner-label">Autoryzowany partner:</p>
+          <div className="partner-brands">
+            <span className="partner-brand">VIESSMANN</span>
+            <span className="partner-separator">/</span>
+            <span className="partner-brand">VAILLANT</span>
+            <span className="partner-separator">/</span>
+            <span className="partner-brand partner-brand-compact">
               WORCESTER BOSCH
             </span>
           </div>
@@ -526,8 +518,9 @@ export default function HomePage() {
       <section id="uslugi" className="bg-[var(--color-bg)] pb-14 pt-14">
         <div className="site-container">
           <Reveal className="max-w-[720px]">
-            <p className="section-eyebrow">Najczęściej wybierane usługi</p>
-            <h2 className="section-title">Usługi i ceny</h2>
+            <h2 className="section-title section-title-surface">
+              Usługi i ceny
+            </h2>
             <p className="section-subtitle">
               Każda karta pokazuje nie tylko cenę startową, ale też kiedy dana
               usługa ma sens, co zwykle wchodzi w zakres i jak najlepiej zacząć
@@ -555,16 +548,7 @@ export default function HomePage() {
                       : ""
                   }`}
                 >
-                  <span
-                    className={`inline-block rounded-[4px] px-[10px] py-[3px] text-[10px] uppercase tracking-[0.07em] ${
-                      service.emergency
-                        ? "bg-[rgba(224,106,27,0.1)] text-[var(--color-orange)]"
-                        : "bg-[var(--color-accent-light)] text-[var(--color-accent)]"
-                    }`}
-                  >
-                    {service.category}
-                  </span>
-                  <h3 className="service-card-title mt-3">
+                  <h3 className="service-card-title">
                     <Link
                       href={service.href}
                       className="transition duration-200 ease-in-out hover:text-[var(--color-accent)]"
@@ -635,7 +619,7 @@ export default function HomePage() {
       <section className="bg-[var(--color-bg-dark)] pb-16 pt-12">
         <div className="site-container">
           <Reveal className="max-w-[720px]">
-            <h2 className="section-title section-title-dark">
+            <h2 className="section-title section-title-dark section-title-surface section-title-surface-dark">
               Co mówią nasi klienci
             </h2>
             <p className="mt-3 text-[14px] leading-[1.5] text-[rgba(255,255,255,0.55)]">

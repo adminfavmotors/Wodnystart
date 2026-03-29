@@ -22,8 +22,9 @@ export function ShowcaseSlider({ items }: ShowcaseSliderProps) {
   return (
     <div>
       <div className="mb-10">
-        <p className="section-eyebrow">Realizacje</p>
-        <h2 className="section-title">Przed i po nowoczesnej modernizacji kotłowni</h2>
+        <h2 className="section-title section-title-surface">
+          Przed i po nowoczesnej modernizacji kotłowni
+        </h2>
       </div>
 
       <div className="case-card overflow-hidden">
