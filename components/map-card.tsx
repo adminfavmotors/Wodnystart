@@ -43,7 +43,7 @@ function InfoIcon({ type }: { type: "address" | "hours" | "service" }) {
 
 export function MapCard() {
   return (
-    <div className="card-surface overflow-hidden p-6">
+    <div className="contact-panel overflow-hidden p-6">
       <div className="mb-5">
         <h3 className="font-[var(--font-heading)] text-[24px] font-bold leading-[1.2] text-[var(--color-text)]">
           Jesteśmy blisko i reagujemy szybko
@@ -69,7 +69,7 @@ export function MapCard() {
           <div className="flex items-start gap-3">
             <InfoIcon type="hours" />
             <div>
-              <p className="text-[14px] leading-[1.5] text-[var(--color-text)]">Pon–Pt, 8:00–20:00</p>
+              <p className="text-[14px] leading-[1.5] text-[var(--color-text)]">Pon-Pt, 8:00-20:00</p>
               <p className="mt-1 text-[13px] leading-[1.5] text-[var(--color-text-muted)]">
                 Konsultacje i wyceny w godzinach pracy
               </p>

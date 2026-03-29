@@ -12,20 +12,20 @@ const pricingCards = [
   {
     title: "Montaż pomp ciepła",
     description:
-      "Kompleksowe systemy powietrze-woda. Pomoc w formalnościach i dotacjach z programu „Czyste Powietrze”.",
+      "Kompleksowe systemy powietrze-woda. Pomoc w formalnościach i dotacjach z programu \"Czyste Powietrze\".",
     price: "od 14 000 PLN",
   },
   {
     title: "Przeglądy i serwis",
     description:
       "Coroczna konserwacja: czyszczenie, analiza spalin i optymalizacja spalania. Przedłużamy życie Twojego kotła.",
-    price: "350 – 550 PLN",
+    price: "350 - 550 PLN",
   },
   {
     title: "Ogrzewanie podłogowe",
     description:
       "Projekt i wykonanie systemów płaszczyznowych. Komfort ciepłych stóp i oszczędność energii do 20%.",
-    price: "od 140 PLN / m²",
+    price: "od 140 PLN / m2",
   },
   {
     title: "Serwis awaryjny 24/7",
@@ -76,7 +76,7 @@ export default function ServicePage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
             <div className="max-w-[760px]">
               <h1 className="font-[var(--font-heading)] text-[46px] font-bold leading-[1.1] tracking-[-0.02em] text-[var(--color-text)] max-md:text-[34px]">
-                Nasze Usługi – Cennik 2026
+                Nasze usługi - cennik 2026
               </h1>
               <p className="mt-4 max-w-[620px] text-[16px] font-light leading-[1.7] text-[var(--color-text-muted)]">
                 Poniżej znajdziesz orientacyjne ceny i najważniejsze kierunki usług, które
@@ -93,7 +93,7 @@ export default function ServicePage() {
               </div>
             </div>
 
-            <div className="card-surface p-6">
+            <div className="surface-panel p-6">
               <p className="text-[15px] font-light leading-[1.7] text-[var(--color-text-muted)]">
                 Realizujemy montaże, modernizacje i serwis z naciskiem na bezpieczeństwo,
                 energooszczędność i szybki czas reakcji na terenie miasta i okolic.
@@ -117,12 +117,12 @@ export default function ServicePage() {
             {pricingCards.map((service) => (
               <div
                 key={service.title}
-                className={`card-surface flex h-full flex-col p-6 ${
+                className={`service-card flex h-full flex-col p-6 ${
                   service.emergency ? "border-l-[3px] border-l-[var(--color-orange)]" : ""
                 }`}
               >
                 <div className="flex items-start justify-between gap-4">
-                  <h3 className="card-title">{service.title}</h3>
+                  <h3 className="service-card-title">{service.title}</h3>
                   {service.emergency ? (
                     <span className="rounded-[4px] bg-[rgba(224,106,27,0.1)] px-3 py-1 text-[10px] uppercase tracking-[0.07em] text-[var(--color-orange)]">
                       24/7
@@ -130,12 +130,12 @@ export default function ServicePage() {
                   ) : null}
                 </div>
 
-                <p className="card-copy mt-3">{service.description}</p>
+                <p className="service-card-copy mt-3">{service.description}</p>
 
                 <div className="mt-5 border-t border-[var(--color-border)] pt-4">
-                  <p className="price-label">Cena brutto</p>
+                  <p className="service-price-label">Cena brutto</p>
                   <p
-                    className={`price-value ${
+                    className={`service-price-value ${
                       service.emergency ? "text-[var(--color-orange)]" : ""
                     }`}
                   >
@@ -162,12 +162,12 @@ export default function ServicePage() {
             {serviceDetails.map((item) => (
               <div
                 key={item.title}
-                className={`card-surface p-6 ${
+                className={`detail-card p-6 ${
                   item.emergency ? "border-l-[3px] border-l-[var(--color-orange)]" : ""
                 }`}
               >
-                <h3 className="card-title">{item.title}</h3>
-                <p className="card-copy mt-3">{item.description}</p>
+                <h3 className="detail-card-title">{item.title}</h3>
+                <p className="detail-card-copy mt-3">{item.description}</p>
               </div>
             ))}
           </div>

@@ -9,7 +9,7 @@ export default function ShowcasePage() {
 
       <section className="pb-20 pt-12">
         <div className="site-container">
-          <div className="card-surface max-w-[760px] p-8 md:p-10">
+          <div className="legal-panel max-w-[760px] p-8 md:p-10">
             <p className="section-eyebrow">Realizacja</p>
             <h1 className="section-title">Strona realizacji w przygotowaniu</h1>
             <p className="section-subtitle">

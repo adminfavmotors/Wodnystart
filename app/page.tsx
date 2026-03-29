@@ -14,6 +14,25 @@ const heroStats = [
   { value: "24/7", label: "serwis awaryjny" },
 ];
 
+const heroChecks = [
+  {
+    title: "Montaż, serwis i modernizacje",
+    description: "Kotły gazowe, pompy ciepła i szybkie interwencje awaryjne w Krakowie.",
+  },
+  {
+    title: "Realna wycena bez zgadywania",
+    description: "Najpierw rozpoznajemy sytuację, potem podajemy zakres prac i koszt.",
+  },
+  {
+    title: "Szybki kontakt z technikiem",
+    description: "W godzinach pracy zwykle oddzwaniamy jeszcze tego samego dnia.",
+  },
+  {
+    title: "Porządek po wykonaniu prac",
+    description: "Dbamy o estetykę kotłowni, dokumentację i bezpieczne uruchomienie.",
+  },
+];
+
 const stripStats = [
   { value: "20", unit: "+", label: "lat doświadczenia\nw instalacjach" },
   { value: "45", unit: "min", label: "średni czas reakcji\nw Krakowie" },
@@ -23,25 +42,25 @@ const stripStats = [
 
 const benefits = [
   {
-    title: "20 Lat Doświadczenia",
+    title: "20 lat doświadczenia",
     description:
       "Dwie dekady praktyki w montażu, modernizacji i serwisie instalacji grzewczych w Krakowie.",
     icon: "shield",
   },
   {
-    title: "Ekspresowy Serwis",
+    title: "Ekspresowy serwis",
     description:
       "Szybko reagujemy na zgłoszenia i pomagamy także w nagłych awariach poza standardowym grafikiem.",
     icon: "lightning",
   },
   {
-    title: "Gwarancja 10 Lat",
+    title: "Gwarancja 10 lat",
     description:
       "Pracujemy na sprawdzonych rozwiązaniach i dobieramy urządzenia tak, aby służyły bezproblemowo przez lata.",
     icon: "medal",
   },
   {
-    title: "Czysty Montaż",
+    title: "Czysty montaż",
     description:
       "Dbamy o estetykę wykonania, porządek po pracy i przejrzysty układ całej kotłowni.",
     icon: "check",
@@ -53,39 +72,71 @@ const services = [
     category: "Montaż",
     title: "Montaż kotła gazowego",
     description: "Kompleksowa instalacja, próba szczelności i pierwsze uruchomienie urządzenia.",
+    audience: "Dla domu po wymianie starego źródła ciepła lub nowej instalacji.",
+    highlights: [
+      "Dobór miejsca montażu i podłączeń",
+      "Próba szczelności oraz uruchomienie",
+      "Instrukcja obsługi i dokumentacja dla klienta",
+    ],
+    note: "Najlepszy wybór, jeśli chcesz zamknąć temat montażu w jednym terminie.",
     price: "1 800 PLN",
     href: "/usluga",
+    ctaLabel: "Umów wycenę montażu",
   },
   {
     category: "Serwis",
     title: "Przegląd okresowy",
     description: "Diagnostyka, czyszczenie i regulacja pracy kotła dla bezpiecznej eksploatacji.",
+    audience: "Dla właścicieli kotłów, którzy chcą uniknąć awarii w sezonie grzewczym.",
+    highlights: [
+      "Czyszczenie i kontrola podzespołów",
+      "Sprawdzenie parametrów pracy urządzenia",
+      "Wskazanie usterek i zaleceń serwisowych",
+    ],
+    note: "Regularny przegląd zwykle kosztuje mniej niż jeden nieplanowany wyjazd awaryjny.",
     price: "350 PLN",
     href: "/usluga",
+    ctaLabel: "Zarezerwuj przegląd",
   },
   {
     category: "OZE",
     title: "Instalacja pompy ciepła",
     description:
       "Dobór systemu, montaż i wsparcie przy przygotowaniu inwestycji oraz formalności.",
+    audience: "Dla domów modernizowanych lub nowych inwestycji nastawionych na niższe koszty eksploatacji.",
+    highlights: [
+      "Dobór mocy do realnego zapotrzebowania",
+      "Montaż i konfiguracja całego układu",
+      "Wsparcie przy przygotowaniu inwestycji",
+    ],
+    note: "Dobra opcja, jeśli chcesz połączyć komfort obsługi z niższym zużyciem energii.",
     price: "14 000 PLN",
     href: "/usluga",
+    ctaLabel: "Sprawdź pompę ciepła",
   },
   {
     category: "Serwis awaryjny",
     title: "Pogotowie gazowe 24/7",
     description:
       "Natychmiastowa reakcja przy awarii, wycieku lub nagłym zatrzymaniu instalacji grzewczej.",
+    audience: "Dla sytuacji, w których nie można czekać do kolejnego dnia roboczego.",
+    highlights: [
+      "Kontakt telefoniczny bez pośredników",
+      "Szybka diagnostyka i zabezpieczenie instalacji",
+      "Możliwość naprawy na miejscu lub plan dalszych działań",
+    ],
+    note: "W przypadku awarii liczy się czas reakcji i konkretna diagnoza już przy pierwszym kontakcie.",
     price: "250 PLN",
     emergency: true,
     href: "/usluga",
+    ctaLabel: "Zobacz tryb awaryjny",
   },
 ];
 
 const showcases = [
   {
     title: "Nowa kotłownia dla domu jednorodzinnego",
-    meta: "2026 · Kraków, Podgórze",
+    meta: "2026 • Kraków, Podgórze",
     timeline: "Realizacja: 3 dni robocze",
     before:
       "Stara kotłownia była ciasna, chaotyczna i utrudniała bezpieczny dostęp do urządzeń podczas codziennego użytkowania oraz serwisu.",
@@ -109,7 +160,7 @@ const reviews = [
   },
   {
     text:
-      "Awaria w piątek wieczorem — technik był u nas w 40 minut. Problem rozwiązany tego samego dnia. Rozsądna cena za pogotowie.",
+      "Awaria w piątek wieczorem - technik był u nas w 40 minut. Problem rozwiązany tego samego dnia. Rozsądna cena za pogotowie.",
     author: "Agnieszka K.",
     area: "Kraków, Podgórze",
     source: "Google Maps",
@@ -181,6 +232,36 @@ function BenefitIcon({ type }: { type: string }) {
   );
 }
 
+function HeroCheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+      <path
+        d="m6.5 12.5 3.1 3.1L17.5 8"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.9"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ServiceFeatureIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+      <path
+        d="m6.5 12.5 3.1 3.1L17.5 8"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.9"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function ContactInfoIcon({ type }: { type: "clock" | "service" | "location" | "phone" | "mail" }) {
   if (type === "clock") {
     return (
@@ -227,7 +308,11 @@ function ContactInfoIcon({ type }: { type: "clock" | "service" | "location" | "p
 
   if (type === "mail") {
     return (
-      <svg viewBox="0 0 24 24" className="h-[14px] w-[14px] text-[var(--color-accent)]" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-[14px] w-[14px] text-[var(--color-accent)]"
+        aria-hidden="true"
+      >
         <path
           d="M4 7h16v10H4V7Zm0 0 8 6 8-6"
           fill="none"
@@ -240,7 +325,11 @@ function ContactInfoIcon({ type }: { type: "clock" | "service" | "location" | "p
   }
 
   return (
-    <svg viewBox="0 0 24 24" className="h-[14px] w-[14px] text-[var(--color-accent)]" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-[14px] w-[14px] text-[var(--color-accent)]"
+      aria-hidden="true"
+    >
       <path
         d="M7.5 4.5h3l1.5 3-2 1.8a13.4 13.4 0 0 0 4.7 4.7l1.8-2 3 1.5v3a2 2 0 0 1-2.2 2A15.8 15.8 0 0 1 5.5 6.7 2 2 0 0 1 7.5 4.5Z"
         fill="none"
@@ -260,43 +349,63 @@ export default function HomePage() {
       <section className="bg-[var(--color-bg)] pb-[72px] pt-[24px]">
         <div className="site-container grid items-center gap-10 lg:grid-cols-[55fr_45fr]">
           <Reveal className="max-w-[620px]">
+            <div className="hero-kicker">
+              Kraków i okolice
+              <span className="h-1 w-1 rounded-full bg-[var(--color-accent)]" />
+              Montaż i serwis instalacji grzewczych
+            </div>
             <h1 className="font-[var(--font-heading)] text-[60px] font-bold leading-[1.1] tracking-[-0.02em] text-[var(--color-text)] max-md:text-[42px]">
-              Inteligentne ciepło dla Twojego domu
+              Montaż i serwis kotłów oraz pomp ciepła w Krakowie
             </h1>
-            <p className="mt-4 max-w-[460px] text-[16px] font-light leading-[1.7] text-[var(--color-text-muted)]">
-              Profesjonalny montaż i serwis kotłów w Krakowie — ponad 20 lat doświadczenia.
+            <p className="hero-lead mt-5">
+              Projektujemy, montujemy i serwisujemy instalacje grzewcze dla domów i modernizowanych
+              kotłowni. Bez przypadkowych wycen, bez chaosu na budowie i z szybkim kontaktem, gdy
+              liczy się czas.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#kontakt" className="button-base button-primary px-7 py-[14px]">
-                Bezpłatna wycena w 2 godz. →
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a href="#kontakt" className="button-base button-primary px-7 py-[15px]">
+                Umów bezpłatną wycenę
               </a>
-              <a href="tel:+48123456789" className="button-base button-secondary px-6 py-[14px]">
-                Zadzwoń teraz
+              <a href="tel:+48123456789" className="button-base button-urgent px-6 py-[15px]">
+                Awaria? Zadzwoń 24/7
               </a>
             </div>
 
-            <div className="mt-10 flex flex-wrap items-center gap-2">
-              {heroStats.map((stat, index) => (
-                <div key={stat.label} className="flex items-center gap-2">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-[13px] font-medium leading-[1.5] text-[var(--color-accent)]">
-                      {stat.value}
-                    </span>
-                    <span className="text-[13px] font-light leading-[1.5] text-[var(--color-text-muted)]">
-                      {stat.label}
-                    </span>
+            <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] leading-[1.6] text-[var(--color-text-muted)]">
+              <span>Pon-Pt 8:00-20:00</span>
+              <span className="text-[var(--color-border)]">•</span>
+              <span>Obsługa Krakowa i okolic</span>
+              <span className="text-[var(--color-border)]">•</span>
+              <span>Autoryzowane marki i pełna dokumentacja</span>
+            </div>
+
+            <div className="hero-check-grid mt-8">
+              {heroChecks.map((item) => (
+                <div key={item.title} className="hero-check-item">
+                  <span className="hero-check-icon">
+                    <HeroCheckIcon />
+                  </span>
+                  <div>
+                    <p className="hero-check-title">{item.title}</p>
+                    <p className="hero-check-copy">{item.description}</p>
                   </div>
-                  {index < heroStats.length - 1 ? (
-                    <span className="text-[13px] leading-[1.5] text-[var(--color-border)]">·</span>
-                  ) : null}
+                </div>
+              ))}
+            </div>
+
+            <div className="hero-proof-grid mt-8">
+              {heroStats.map((stat) => (
+                <div key={stat.label} className="hero-proof-card">
+                  <p className="hero-proof-value">{stat.value}</p>
+                  <p className="hero-proof-label">{stat.label}</p>
                 </div>
               ))}
             </div>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="overflow-hidden rounded-[8px] border border-[var(--color-border)] bg-[var(--color-bg-card)]">
+            <div className="hero-media-frame">
               <div className="relative aspect-[16/9] min-h-[460px] max-md:min-h-0">
                 <Image
                   src="/images/hero-technician.jpg"
@@ -306,6 +415,28 @@ export default function HomePage() {
                   sizes="(max-width: 1024px) 100vw, 45vw"
                   className="object-cover"
                 />
+                <div className="hero-media-overlay" />
+                <div className="hero-media-badge">
+                  <span className="inline-flex h-2.5 w-2.5 rounded-full bg-[var(--color-orange)]" />
+                  Szybki dojazd na terenie Krakowa
+                </div>
+                <div className="hero-media-card">
+                  <p className="hero-media-card-title">Technik, który odbiera i przyjeżdża</p>
+                  <p className="hero-media-card-copy">
+                    Nie zostawiamy klienta z formularzem bez odpowiedzi. Przy awarii liczy się
+                    konkret, diagnostyka i sprawna organizacja wyjazdu.
+                  </p>
+                  <div className="hero-media-meta">
+                    <div className="hero-media-meta-item">
+                      <p className="hero-media-meta-label">Najczęstsze zlecenia</p>
+                      <p className="hero-media-meta-value">Kotły gazowe, pompy ciepła, pogotowie</p>
+                    </div>
+                    <div className="hero-media-meta-item">
+                      <p className="hero-media-meta-label">Kontakt awaryjny</p>
+                      <p className="hero-media-meta-value">Telefonicznie 24/7, bez pośredników</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </Reveal>
@@ -354,12 +485,12 @@ export default function HomePage() {
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {benefits.map((benefit, index) => (
               <Reveal key={benefit.title} delay={0.08 * index}>
-                <div className="card-surface h-full p-6">
+                <div className="benefit-card h-full p-6">
                   <div className="flex h-10 w-10 items-center justify-center rounded-[8px] bg-[var(--color-accent-light)] text-[var(--color-accent)]">
                     <BenefitIcon type={benefit.icon} />
                   </div>
-                  <h3 className="card-title mt-4">{benefit.title}</h3>
-                  <p className="card-copy mt-2">{benefit.description}</p>
+                  <h3 className="benefit-card-title mt-4">{benefit.title}</h3>
+                  <p className="benefit-card-copy mt-2">{benefit.description}</p>
                 </div>
               </Reveal>
             ))}
@@ -391,18 +522,28 @@ export default function HomePage() {
       <section id="uslugi" className="bg-[var(--color-bg)] pb-14 pt-14">
         <div className="site-container">
           <Reveal className="max-w-[720px]">
+            <p className="section-eyebrow">Najczęściej wybierane usługi</p>
             <h2 className="section-title">Usługi i ceny</h2>
             <p className="section-subtitle">
-              Przejrzyste stawki startowe — bez ukrytych kosztów. Dokładna wycena po bezpłatnej
-              konsultacji.
+              Każda karta pokazuje nie tylko cenę startową, ale też kiedy dana usługa ma sens, co
+              zwykle wchodzi w zakres i jak najlepiej zacząć kontakt.
             </p>
+          </Reveal>
+
+          <Reveal delay={0.04}>
+            <div className="service-conversion-note mt-6">
+              <p className="service-conversion-copy">
+                Nie wiesz, którą usługę wybrać? Zostaw numer w formularzu albo zadzwoń. Po krótkiej
+                rozmowie wskażemy właściwy zakres prac i przygotujemy realną wycenę.
+              </p>
+            </div>
           </Reveal>
 
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {services.map((service, index) => (
               <Reveal key={service.title} delay={0.08 * index}>
                 <div
-                  className={`card-surface card-hover flex h-full flex-col p-6 ${
+                  className={`service-card flex h-full flex-col p-6 ${
                     service.emergency ? "border-l-[3px] border-l-[var(--color-orange)]" : ""
                   }`}
                 >
@@ -415,7 +556,7 @@ export default function HomePage() {
                   >
                     {service.category}
                   </span>
-                  <h3 className="card-title mt-3">
+                  <h3 className="service-card-title mt-3">
                     <Link
                       href={service.href}
                       className="transition duration-200 ease-in-out hover:text-[var(--color-accent)]"
@@ -423,15 +564,29 @@ export default function HomePage() {
                       {service.title}
                     </Link>
                   </h3>
-                  <p className="card-copy mt-2">{service.description}</p>
+                  <p className="service-card-copy mt-2">{service.description}</p>
+                  <p className="service-card-audience mt-4">{service.audience}</p>
+
+                  <div className="service-feature-list mt-5">
+                    {service.highlights.map((highlight) => (
+                      <div key={highlight} className="service-feature-item">
+                        <span className="service-feature-icon">
+                          <ServiceFeatureIcon />
+                        </span>
+                        <span>{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <p className="service-card-note mt-5">{service.note}</p>
 
                   <div className="my-5 border-t border-[var(--color-border)]" />
 
                   <div className="mt-auto flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                     <div>
-                      <p className="price-label">Cena od</p>
+                      <p className="service-price-label">Cena od</p>
                       <p
-                        className={`price-value ${
+                        className={`service-price-value ${
                           service.emergency ? "text-[var(--color-orange)]" : ""
                         }`}
                       >
@@ -440,9 +595,11 @@ export default function HomePage() {
                     </div>
                     <Link
                       href={service.href}
-                      className="button-base button-secondary px-4 py-[10px] text-[12px]"
+                      className={`button-base px-4 py-[10px] text-[12px] ${
+                        service.emergency ? "button-urgent" : "button-secondary"
+                      }`}
                     >
-                      Zobacz usługę
+                      {service.ctaLabel}
                     </Link>
                   </div>
                 </div>
@@ -475,7 +632,7 @@ export default function HomePage() {
                 <div className="flex h-full flex-col rounded-[8px] border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.06)] p-6">
                   <p className="text-[16px] leading-none text-[#F59E0B]">★★★★★</p>
                   <p className="mt-3 text-[15px] font-light leading-[1.65] text-[rgba(255,255,255,0.8)]">
-                    “{review.text}”
+                    &quot;{review.text}&quot;
                   </p>
                   <div className="my-4 border-t border-[rgba(255,255,255,0.08)]" />
                   <div className="mt-auto">
@@ -496,7 +653,7 @@ export default function HomePage() {
             rel="noreferrer"
             className="button-base button-secondary-dark mx-auto mt-10 flex w-fit"
           >
-            Zobacz wszystkie opinie na Google Maps →
+            Zobacz wszystkie opinie na Google Maps -&gt;
           </a>
         </div>
       </section>
@@ -510,14 +667,14 @@ export default function HomePage() {
                   Odpowiemy szybko i konkretnie
                 </h2>
                 <p className="mt-4 text-[15px] font-light leading-[1.7] text-[var(--color-text-muted)]">
-                  Zostaw numer — oddzwaniamy zwykle jeszcze tego samego dnia w godzinach pracy.
+                  Zostaw numer - oddzwaniamy zwykle jeszcze tego samego dnia w godzinach pracy.
                 </p>
 
                 <div className="mt-7 space-y-5">
                   <div className="flex items-start gap-3">
                     <ContactInfoIcon type="clock" />
                     <p className="text-[14px] leading-[1.6] text-[var(--color-text)]">
-                      Pon–Pt, 8:00–20:00
+                      Pon-Pt, 8:00-20:00
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
@@ -556,7 +713,6 @@ export default function HomePage() {
       </section>
 
       <SiteFooter />
-
       <CookieBanner />
     </main>
   );

@@ -9,12 +9,12 @@ export default function PrivacyPolicyPage() {
 
       <section className="py-20">
         <div className="site-container max-w-[920px]">
-          <div className="card-surface p-8 md:p-12">
+          <div className="legal-panel p-8 md:p-12">
             <Link
               href="/"
               className="text-[13px] uppercase tracking-[0.06em] text-[var(--color-accent)] transition duration-200 ease-in-out hover:text-[var(--color-accent-hover)]"
             >
-              ← Wróć na stronę główną
+              &lt;- Wróć na stronę główną
             </Link>
             <h1 className="mt-6 font-[var(--font-heading)] text-[38px] font-bold leading-[1.2] tracking-[-0.01em] text-[var(--color-text)]">
               Polityka prywatności

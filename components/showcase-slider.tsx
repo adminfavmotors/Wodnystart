@@ -26,7 +26,7 @@ export function ShowcaseSlider({ items }: ShowcaseSliderProps) {
         <h2 className="section-title">Przed i po nowoczesnej modernizacji kotłowni</h2>
       </div>
 
-      <div className="overflow-hidden rounded-[8px] border border-[var(--color-border)] bg-[var(--color-bg-card)]">
+      <div className="case-card overflow-hidden">
         <div className="grid md:grid-cols-2">
           <div className="relative min-h-[300px]">
             <Image
@@ -59,7 +59,7 @@ export function ShowcaseSlider({ items }: ShowcaseSliderProps) {
           <span className="inline-flex rounded-[4px] bg-[var(--color-accent-light)] px-3 py-1 text-[11px] leading-[1.5] text-[var(--color-accent)]">
             {activeItem.meta}
           </span>
-          <h3 className="card-title mt-4">
+          <h3 className="case-card-title mt-4">
             <Link
               href={activeItem.href}
               className="transition duration-200 ease-in-out hover:text-[var(--color-accent)]"
@@ -76,18 +76,21 @@ export function ShowcaseSlider({ items }: ShowcaseSliderProps) {
               <p className="text-[12px] uppercase tracking-[0.06em] text-[var(--color-text-muted)]">
                 Przed
               </p>
-              <p className="card-copy mt-2">{activeItem.before}</p>
+              <p className="case-card-copy mt-2">{activeItem.before}</p>
             </div>
             <div>
               <p className="text-[12px] uppercase tracking-[0.06em] text-[var(--color-text-muted)]">
                 Po
               </p>
-              <p className="card-copy mt-2">{activeItem.after}</p>
+              <p className="case-card-copy mt-2">{activeItem.after}</p>
             </div>
           </div>
 
           <div className="mt-5">
-            <Link href={activeItem.href} className="button-base button-secondary px-4 py-[10px] text-[12px]">
+            <Link
+              href={activeItem.href}
+              className="button-base button-secondary px-4 py-[10px] text-[12px]"
+            >
               Zobacz realizację
             </Link>
           </div>

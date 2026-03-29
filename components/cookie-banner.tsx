@@ -29,7 +29,7 @@ export function CookieBanner() {
 
   return (
     <div className="fixed inset-x-5 bottom-5 z-50 md:left-auto md:right-6 md:max-w-[380px]">
-      <div className="card-surface p-6 shadow-[0_18px_48px_rgba(15,25,35,0.12)]">
+      <div className="cookie-panel p-6">
         <p className="text-[14px] font-medium leading-[1.5] text-[var(--color-text)]">
           Używamy cookies w rozsądny sposób
         </p>

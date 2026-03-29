@@ -45,7 +45,7 @@ export function ContactForm() {
   const canSubmit = phoneValid && form.name.trim().length > 1 && form.consent;
 
   return (
-    <div className="card-surface p-8 max-md:p-5">
+    <div className="contact-panel p-8 max-md:p-5">
       <form
         className="space-y-5"
         onSubmit={(event) => {
@@ -146,7 +146,7 @@ export function ContactForm() {
         ) : null}
 
         <button type="submit" className="button-base button-primary h-[52px] w-full">
-          Zamów bezpłatną wycenę →
+          Zamów bezpłatną wycenę -&gt;
         </button>
       </form>
     </div>

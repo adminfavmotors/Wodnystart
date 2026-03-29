@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import type { CSSProperties, ReactNode } from "react";
 
 type RevealProps = {
@@ -11,7 +11,6 @@ type RevealProps = {
 
 export function Reveal({ children, delay = 0, className = "" }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const element = ref.current;
@@ -20,11 +19,34 @@ export function Reveal({ children, delay = 0, className = "" }: RevealProps) {
       return;
     }
 
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const showImmediately = () => {
+      element.classList.remove("reveal-enabled");
+      element.classList.add("is-visible");
+    };
+
+    if (mediaQuery.matches) {
+      showImmediately();
+      return;
+    }
+
+    const rect = element.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const alreadyInView = rect.top < viewportHeight && rect.bottom > 0;
+
+    if (alreadyInView) {
+      showImmediately();
+      return;
+    }
+
+    element.classList.add("reveal-enabled");
+    element.classList.remove("is-visible");
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setVisible(true);
+            element.classList.add("is-visible");
             observer.unobserve(entry.target);
           }
         });
@@ -34,7 +56,19 @@ export function Reveal({ children, delay = 0, className = "" }: RevealProps) {
 
     observer.observe(element);
 
-    return () => observer.disconnect();
+    const handleMotionChange = (event: MediaQueryListEvent) => {
+      if (event.matches) {
+        observer.disconnect();
+        showImmediately();
+      }
+    };
+
+    mediaQuery.addEventListener("change", handleMotionChange);
+
+    return () => {
+      observer.disconnect();
+      mediaQuery.removeEventListener("change", handleMotionChange);
+    };
   }, []);
 
   const style = {
@@ -45,7 +79,7 @@ export function Reveal({ children, delay = 0, className = "" }: RevealProps) {
     <div
       ref={ref}
       style={style}
-      className={`reveal ${visible ? "is-visible" : ""} ${className}`.trim()}
+      className={`reveal is-visible ${className}`.trim()}
     >
       {children}
     </div>
