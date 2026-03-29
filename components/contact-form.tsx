@@ -47,19 +47,9 @@ export function ContactForm() {
   const canSubmit = phoneValid && form.name.trim().length > 1 && form.consent;
 
   return (
-    <div className="contact-panel contact-form-panel p-8 max-md:p-5">
-      <div className="contact-form-header">
-        <h3 className="contact-form-title">
-          Zostaw numer i opisz, czego potrzebujesz
-        </h3>
-        <p className="contact-form-copy">
-          Formularz jest krótki, bo zależy nam na szybkim kontakcie. Wystarczy
-          podstawowy zakres prac i numer do oddzwonienia.
-        </p>
-      </div>
-
+    <div className="contact-panel p-8 max-md:p-5">
       <form
-        className="contact-form-fields"
+        className="space-y-5"
         onSubmit={(event) => {
           event.preventDefault();
           setAttempted(true);
@@ -174,11 +164,6 @@ export function ContactForm() {
         >
           Zamów bezpłatną wycenę -&gt;
         </button>
-
-        <p className="contact-form-footnote">
-          Dane wykorzystujemy wyłącznie do kontaktu w sprawie wyceny lub
-          zgłoszenia serwisowego.
-        </p>
       </form>
     </div>
   );

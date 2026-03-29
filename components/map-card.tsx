@@ -69,17 +69,15 @@ function InfoIcon({ type }: { type: "address" | "hours" | "service" }) {
 
 export function MapCard() {
   return (
-    <div className="contact-panel map-card-panel overflow-hidden p-6">
-      <div className="map-card-header">
-        <h3 className="map-card-title">Jesteśmy blisko i reagujemy szybko</h3>
-        <p className="map-card-copy">
-          Obsługujemy Kraków i okolice, dlatego łatwo umawiamy wizyty, przeglądy
-          i pilne interwencje bez wielodniowego oczekiwania.
-        </p>
+    <div className="contact-panel overflow-hidden p-6">
+      <div className="mb-5">
+        <h3 className="font-[var(--font-heading)] text-[24px] font-bold leading-[1.2] text-[var(--color-text)]">
+          Jesteśmy blisko i reagujemy szybko
+        </h3>
       </div>
 
-      <div className="map-card-grid">
-        <div className="map-card-item">
+      <div className="grid gap-3 md:grid-cols-3">
+        <div className="rounded-[8px] border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
           <div className="flex items-start gap-3">
             <InfoIcon type="address" />
             <div>
@@ -93,7 +91,7 @@ export function MapCard() {
           </div>
         </div>
 
-        <div className="map-card-item">
+        <div className="rounded-[8px] border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
           <div className="flex items-start gap-3">
             <InfoIcon type="hours" />
             <div>
@@ -107,7 +105,7 @@ export function MapCard() {
           </div>
         </div>
 
-        <div className="map-card-item">
+        <div className="rounded-[8px] border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
           <div className="flex items-start gap-3">
             <InfoIcon type="service" />
             <div>
@@ -126,7 +124,7 @@ export function MapCard() {
         href="https://maps.google.com/?q=ul.+Wielicka+92,+30-552+Krak%C3%B3w"
         target="_blank"
         rel="noreferrer"
-        className="map-card-link"
+        className="mt-6 inline-flex text-[14px] leading-[1.5] text-[var(--color-accent)] underline transition duration-200 ease-in-out hover:text-[var(--color-accent-hover)]"
       >
         Otwórz trasę w Google Maps
       </a>
