@@ -52,8 +52,10 @@ const services = [
   {
     category: "Montaż",
     title: "Montaż kotła gazowego",
-    description: "Kompleksowa instalacja, próba szczelności i pierwsze uruchomienie urządzenia.",
-    audience: "Dla domu po wymianie starego źródła ciepła lub nowej instalacji.",
+    description:
+      "Kompleksowa instalacja, próba szczelności i pierwsze uruchomienie urządzenia.",
+    audience:
+      "Dla domu po wymianie starego źródła ciepła lub nowej instalacji.",
     highlights: [
       "Dobór miejsca montażu i podłączeń",
       "Próba szczelności oraz uruchomienie",
@@ -67,8 +69,10 @@ const services = [
   {
     category: "Serwis",
     title: "Przegląd okresowy",
-    description: "Diagnostyka, czyszczenie i regulacja pracy kotła dla bezpiecznej eksploatacji.",
-    audience: "Dla właścicieli kotłów, którzy chcą uniknąć awarii w sezonie grzewczym.",
+    description:
+      "Diagnostyka, czyszczenie i regulacja pracy kotła dla bezpiecznej eksploatacji.",
+    audience:
+      "Dla właścicieli kotłów, którzy chcą uniknąć awarii w sezonie grzewczym.",
     highlights: [
       "Czyszczenie i kontrola podzespołów",
       "Sprawdzenie parametrów pracy urządzenia",
@@ -84,7 +88,8 @@ const services = [
     title: "Instalacja pompy ciepła",
     description:
       "Dobór systemu, montaż i wsparcie przy przygotowaniu inwestycji oraz formalności.",
-    audience: "Dla domów modernizowanych lub nowych inwestycji nastawionych na niższe koszty eksploatacji.",
+    audience:
+      "Dla domów modernizowanych lub nowych inwestycji nastawionych na niższe koszty eksploatacji.",
     highlights: [
       "Dobór mocy do realnego zapotrzebowania",
       "Montaż i konfiguracja całego układu",
@@ -100,7 +105,8 @@ const services = [
     title: "Pogotowie gazowe 24/7",
     description:
       "Natychmiastowa reakcja przy awarii, wycieku lub nagłym zatrzymaniu instalacji grzewczej.",
-    audience: "Dla sytuacji, w których nie można czekać do kolejnego dnia roboczego.",
+    audience:
+      "Dla sytuacji, w których nie można czekać do kolejnego dnia roboczego.",
     highlights: [
       "Kontakt telefoniczny bez pośredników",
       "Szybka diagnostyka i zabezpieczenie instalacji",
@@ -133,22 +139,19 @@ const showcases = [
 
 const reviews = [
   {
-    text:
-      "Szybka reakcja, fachowe wykonanie i pełna czystość po robocie. Kotłownia wygląda jak z katalogu. Polecam bez zastrzeżeń.",
+    text: "Szybka reakcja, fachowe wykonanie i pełna czystość po robocie. Kotłownia wygląda jak z katalogu. Polecam bez zastrzeżeń.",
     author: "Marek W.",
     area: "Kraków, Nowa Huta",
     source: "Google Maps",
   },
   {
-    text:
-      "Awaria w piątek wieczorem - technik był u nas w 40 minut. Problem rozwiązany tego samego dnia. Rozsądna cena za pogotowie.",
+    text: "Awaria w piątek wieczorem - technik był u nas w 40 minut. Problem rozwiązany tego samego dnia. Rozsądna cena za pogotowie.",
     author: "Agnieszka K.",
     area: "Kraków, Podgórze",
     source: "Google Maps",
   },
   {
-    text:
-      "Wymiana kotła na pompę ciepła zrealizowana w 3 dni, bez chaosu i niespodzianek. Dofinansowanie dopięte razem z ekipą.",
+    text: "Wymiana kotła na pompę ciepła zrealizowana w 3 dni, bez chaosu i niespodzianek. Dofinansowanie dopięte razem z ekipą.",
     author: "Piotr i Monika R.",
     area: "Kraków, Bieżanów",
     source: "Google Maps",
@@ -186,7 +189,14 @@ function BenefitIcon({ type }: { type: string }) {
   if (type === "medal") {
     return (
       <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
-        <circle cx="12" cy="9" r="4" fill="none" stroke="currentColor" strokeWidth="1.8" />
+        <circle
+          cx="12"
+          cy="9"
+          r="4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+        />
         <path
           d="M9 13.5 7.5 21l4.5-2.5 4.5 2.5-1.5-7.5"
           fill="none"
@@ -200,7 +210,14 @@ function BenefitIcon({ type }: { type: string }) {
 
   return (
     <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
-      <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <circle
+        cx="12"
+        cy="12"
+        r="8"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
       <path
         d="m8.5 12 2.2 2.2 4.8-4.8"
         fill="none"
@@ -228,11 +245,26 @@ function ServiceFeatureIcon() {
   );
 }
 
-function ContactInfoIcon({ type }: { type: "clock" | "service" | "location" | "phone" | "mail" }) {
+function ContactInfoIcon({
+  type,
+}: {
+  type: "clock" | "service" | "location" | "phone" | "mail";
+}) {
   if (type === "clock") {
     return (
-      <svg viewBox="0 0 24 24" className="h-5 w-5 text-[var(--color-accent)]" aria-hidden="true">
-        <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <svg
+        viewBox="0 0 24 24"
+        className="h-5 w-5 text-[var(--color-accent)]"
+        aria-hidden="true"
+      >
+        <circle
+          cx="12"
+          cy="12"
+          r="8"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+        />
         <path
           d="M12 8v4l2.5 2.5"
           fill="none"
@@ -246,7 +278,11 @@ function ContactInfoIcon({ type }: { type: "clock" | "service" | "location" | "p
 
   if (type === "service") {
     return (
-      <svg viewBox="0 0 24 24" className="h-5 w-5 text-[var(--color-orange)]" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-5 w-5 text-[var(--color-orange)]"
+        aria-hidden="true"
+      >
         <path
           d="M13 2 6 13h5l-1 9 8-12h-5l0-8Z"
           fill="none"
@@ -260,14 +296,25 @@ function ContactInfoIcon({ type }: { type: "clock" | "service" | "location" | "p
 
   if (type === "location") {
     return (
-      <svg viewBox="0 0 24 24" className="h-5 w-5 text-[var(--color-accent)]" aria-hidden="true">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-5 w-5 text-[var(--color-accent)]"
+        aria-hidden="true"
+      >
         <path
           d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11Z"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.8"
         />
-        <circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" strokeWidth="1.8" />
+        <circle
+          cx="12"
+          cy="10"
+          r="2.3"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+        />
       </svg>
     );
   }
@@ -312,76 +359,86 @@ export default function HomePage() {
     <main className="bg-[var(--color-bg)]">
       <SiteHeader />
 
-      <section className="bg-[var(--color-bg)] pb-[72px] pt-[24px]">
-        <div className="site-container grid items-center gap-10 lg:grid-cols-[55fr_45fr]">
-          <Reveal className="max-w-[620px]">
-            <div className="hero-kicker">
-              Kraków i okolice
-              <span className="h-1 w-1 rounded-full bg-[var(--color-accent)]" />
-              Montaż i serwis instalacji grzewczych
-            </div>
-            <h1 className="font-[var(--font-heading)] text-[60px] font-bold leading-[1.1] tracking-[-0.02em] text-[var(--color-text)] max-md:text-[42px]">
-              Montaż i serwis kotłów oraz pomp ciepła w Krakowie
-            </h1>
-            <p className="hero-lead mt-5">
-              Projektujemy, montujemy i serwisujemy instalacje grzewcze dla domów i modernizowanych
-              kotłowni. Bez przypadkowych wycen, bez chaosu na budowie i z szybkim kontaktem, gdy
-              liczy się czas.
-            </p>
+      <section className="hero-section">
+        <div className="site-container">
+          <div className="hero-shell">
+            <Reveal className="hero-copy">
+              <div className="hero-kicker">
+                Kraków i okolice
+                <span className="h-1 w-1 rounded-full bg-[var(--color-accent)]" />
+                Montaż i serwis instalacji grzewczych
+              </div>
+              <h1 className="hero-title">
+                Montaż i serwis kotłów oraz pomp ciepła w Krakowie
+              </h1>
+              <p className="hero-lead mt-5">
+                Projektujemy, montujemy i serwisujemy instalacje grzewcze dla
+                domów i modernizowanych kotłowni. Bez przypadkowych wycen, bez
+                chaosu na budowie i z szybkim kontaktem, gdy liczy się czas.
+              </p>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a href="#kontakt" className="button-base button-primary px-7 py-[15px]">
-                Umów bezpłatną wycenę
-              </a>
-              <a href="tel:+48123456789" className="button-base button-urgent px-6 py-[15px]">
-                Awaria? Zadzwoń 24/7
-              </a>
-            </div>
+              <div className="hero-actions">
+                <a
+                  href="#kontakt"
+                  className="button-base button-primary px-7 py-[15px]"
+                >
+                  Umów bezpłatną wycenę
+                </a>
+                <a
+                  href="tel:+48123456789"
+                  className="button-base button-urgent px-6 py-[15px]"
+                >
+                  Awaria? Zadzwoń 24/7
+                </a>
+              </div>
 
-            <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] leading-[1.6] text-[var(--color-text-muted)]">
-              <span>Pon-Pt 8:00-20:00</span>
-              <span className="text-[var(--color-border)]">•</span>
-              <span>Obsługa Krakowa i okolic</span>
-              <span className="text-[var(--color-border)]">•</span>
-              <span>Autoryzowane marki i pełna dokumentacja</span>
-            </div>
+              <div className="hero-meta">
+                <span>Pon-Pt 8:00-20:00</span>
+                <span className="text-[var(--color-border)]">•</span>
+                <span>Obsługa Krakowa i okolic</span>
+                <span className="text-[var(--color-border)]">•</span>
+                <span>Autoryzowane marki i pełna dokumentacja</span>
+              </div>
 
-            <div className="hero-proof-row mt-8">
-              {heroStats.map((stat) => (
-                <div key={stat.label} className="hero-proof-inline">
-                  <p className="hero-proof-inline-value">{stat.value}</p>
-                  <p className="hero-proof-inline-label">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
+              <div className="hero-proof-row mt-8">
+                {heroStats.map((stat) => (
+                  <div key={stat.label} className="hero-proof-inline">
+                    <p className="hero-proof-inline-value">{stat.value}</p>
+                    <p className="hero-proof-inline-label">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
 
-          <Reveal delay={0.08}>
-            <div className="hero-media-frame">
-              <div className="relative aspect-[16/9] min-h-[460px] max-md:min-h-0">
-                <Image
-                  src="/images/hero-technician.jpg"
-                  alt="Technik Wodny Standart przy instalacji grzewczej"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                  className="object-cover"
-                />
-                <div className="hero-media-overlay" />
-                <div className="hero-media-badge">
-                  <span className="inline-flex h-2.5 w-2.5 rounded-full bg-[var(--color-orange)]" />
-                  Szybki dojazd na terenie Krakowa
-                </div>
-                <div className="hero-media-caption">
-                  <p className="hero-media-caption-title">Od pierwszego telefonu do uruchomienia instalacji</p>
-                  <p className="hero-media-caption-copy">
-                    Montaż, serwis i interwencje awaryjne organizujemy bez pośredników i bez
-                    przeciągania kontaktu.
-                  </p>
+            <Reveal className="hero-visual" delay={0.08}>
+              <div className="hero-media-frame">
+                <div className="hero-media-art">
+                  <Image
+                    src="/images/hero-technician.jpg"
+                    alt="Technik Wodny Standart przy instalacji grzewczej"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover"
+                  />
+                  <div className="hero-media-overlay" />
+                  <div className="hero-media-badge">
+                    <span className="inline-flex h-2.5 w-2.5 rounded-full bg-[var(--color-orange)]" />
+                    Szybki dojazd na terenie Krakowa
+                  </div>
+                  <div className="hero-media-caption">
+                    <p className="hero-media-caption-title">
+                      Od pierwszego telefonu do uruchomienia instalacji
+                    </p>
+                    <p className="hero-media-caption-copy">
+                      Montaż, serwis i interwencje awaryjne organizujemy bez
+                      pośredników i bez przeciągania kontaktu.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -418,7 +475,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="zalety" className="bg-[var(--color-bg-alt)] pb-[72px] pt-[56px]">
+      <section
+        id="zalety"
+        className="bg-[var(--color-bg-alt)] pb-[72px] pt-[56px]"
+      >
         <div className="site-container">
           <Reveal className="max-w-[680px]">
             <h2 className="section-title">Dlaczego klienci nam ufają</h2>
@@ -432,7 +492,9 @@ export default function HomePage() {
                     <BenefitIcon type={benefit.icon} />
                   </div>
                   <h3 className="benefit-card-title mt-4">{benefit.title}</h3>
-                  <p className="benefit-card-copy mt-2">{benefit.description}</p>
+                  <p className="benefit-card-copy mt-2">
+                    {benefit.description}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -467,16 +529,18 @@ export default function HomePage() {
             <p className="section-eyebrow">Najczęściej wybierane usługi</p>
             <h2 className="section-title">Usługi i ceny</h2>
             <p className="section-subtitle">
-              Każda karta pokazuje nie tylko cenę startową, ale też kiedy dana usługa ma sens, co
-              zwykle wchodzi w zakres i jak najlepiej zacząć kontakt.
+              Każda karta pokazuje nie tylko cenę startową, ale też kiedy dana
+              usługa ma sens, co zwykle wchodzi w zakres i jak najlepiej zacząć
+              kontakt.
             </p>
           </Reveal>
 
           <Reveal delay={0.04}>
             <div className="service-conversion-note mt-6">
               <p className="service-conversion-copy">
-                Nie wiesz, którą usługę wybrać? Zostaw numer w formularzu albo zadzwoń. Po krótkiej
-                rozmowie wskażemy właściwy zakres prac i przygotujemy realną wycenę.
+                Nie wiesz, którą usługę wybrać? Zostaw numer w formularzu albo
+                zadzwoń. Po krótkiej rozmowie wskażemy właściwy zakres prac i
+                przygotujemy realną wycenę.
               </p>
             </div>
           </Reveal>
@@ -486,7 +550,9 @@ export default function HomePage() {
               <Reveal key={service.title} delay={0.08 * index}>
                 <div
                   className={`service-card flex h-full flex-col p-6 ${
-                    service.emergency ? "border-l-[3px] border-l-[var(--color-orange)]" : ""
+                    service.emergency
+                      ? "border-l-[3px] border-l-[var(--color-orange)]"
+                      : ""
                   }`}
                 >
                   <span
@@ -506,8 +572,12 @@ export default function HomePage() {
                       {service.title}
                     </Link>
                   </h3>
-                  <p className="service-card-copy mt-2">{service.description}</p>
-                  <p className="service-card-audience mt-4">{service.audience}</p>
+                  <p className="service-card-copy mt-2">
+                    {service.description}
+                  </p>
+                  <p className="service-card-audience mt-4">
+                    {service.audience}
+                  </p>
 
                   <div className="service-feature-list mt-5">
                     {service.highlights.map((highlight) => (
@@ -551,7 +621,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="realizacje" className="bg-[var(--color-bg-alt)] pb-[72px] pt-[56px]">
+      <section
+        id="realizacje"
+        className="bg-[var(--color-bg-alt)] pb-[72px] pt-[56px]"
+      >
         <div className="site-container">
           <Reveal>
             <ShowcaseSlider items={showcases} />
@@ -562,7 +635,9 @@ export default function HomePage() {
       <section className="bg-[var(--color-bg-dark)] pb-16 pt-12">
         <div className="site-container">
           <Reveal className="max-w-[720px]">
-            <h2 className="section-title section-title-dark">Co mówią nasi klienci</h2>
+            <h2 className="section-title section-title-dark">
+              Co mówią nasi klienci
+            </h2>
             <p className="mt-3 text-[14px] leading-[1.5] text-[rgba(255,255,255,0.55)]">
               Ponad 280 opinii na Google. Średnia 4.9/5.
             </p>
@@ -572,13 +647,17 @@ export default function HomePage() {
             {reviews.map((review, index) => (
               <Reveal key={review.author} delay={0.08 * index}>
                 <div className="flex h-full flex-col rounded-[8px] border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.06)] p-6">
-                  <p className="text-[16px] leading-none text-[#F59E0B]">★★★★★</p>
+                  <p className="text-[16px] leading-none text-[#F59E0B]">
+                    ★★★★★
+                  </p>
                   <p className="mt-3 text-[15px] font-light leading-[1.65] text-[rgba(255,255,255,0.8)]">
                     &quot;{review.text}&quot;
                   </p>
                   <div className="my-4 border-t border-[rgba(255,255,255,0.08)]" />
                   <div className="mt-auto">
-                    <p className="text-[14px] font-medium leading-[1.5] text-white">{review.author}</p>
+                    <p className="text-[14px] font-medium leading-[1.5] text-white">
+                      {review.author}
+                    </p>
                     <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[12px] leading-[1.5] text-[rgba(255,255,255,0.42)]">
                       <span>{review.area}</span>
                       <span>{review.source}</span>
@@ -609,7 +688,8 @@ export default function HomePage() {
                   Odpowiemy szybko i konkretnie
                 </h2>
                 <p className="mt-4 text-[15px] font-light leading-[1.7] text-[var(--color-text-muted)]">
-                  Zostaw numer - oddzwaniamy zwykle jeszcze tego samego dnia w godzinach pracy.
+                  Zostaw numer - oddzwaniamy zwykle jeszcze tego samego dnia w
+                  godzinach pracy.
                 </p>
 
                 <div className="mt-7 space-y-5">
