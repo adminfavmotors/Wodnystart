@@ -14,25 +14,6 @@ const heroStats = [
   { value: "24/7", label: "serwis awaryjny" },
 ];
 
-const heroChecks = [
-  {
-    title: "Montaż, serwis i modernizacje",
-    description: "Kotły gazowe, pompy ciepła i szybkie interwencje awaryjne w Krakowie.",
-  },
-  {
-    title: "Realna wycena bez zgadywania",
-    description: "Najpierw rozpoznajemy sytuację, potem podajemy zakres prac i koszt.",
-  },
-  {
-    title: "Szybki kontakt z technikiem",
-    description: "W godzinach pracy zwykle oddzwaniamy jeszcze tego samego dnia.",
-  },
-  {
-    title: "Porządek po wykonaniu prac",
-    description: "Dbamy o estetykę kotłowni, dokumentację i bezpieczne uruchomienie.",
-  },
-];
-
 const stripStats = [
   { value: "20", unit: "+", label: "lat doświadczenia\nw instalacjach" },
   { value: "45", unit: "min", label: "średni czas reakcji\nw Krakowie" },
@@ -232,21 +213,6 @@ function BenefitIcon({ type }: { type: string }) {
   );
 }
 
-function HeroCheckIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
-      <path
-        d="m6.5 12.5 3.1 3.1L17.5 8"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.9"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 function ServiceFeatureIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
@@ -380,25 +346,11 @@ export default function HomePage() {
               <span>Autoryzowane marki i pełna dokumentacja</span>
             </div>
 
-            <div className="hero-check-grid mt-8">
-              {heroChecks.map((item) => (
-                <div key={item.title} className="hero-check-item">
-                  <span className="hero-check-icon">
-                    <HeroCheckIcon />
-                  </span>
-                  <div>
-                    <p className="hero-check-title">{item.title}</p>
-                    <p className="hero-check-copy">{item.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="hero-proof-grid mt-8">
+            <div className="hero-proof-row mt-8">
               {heroStats.map((stat) => (
-                <div key={stat.label} className="hero-proof-card">
-                  <p className="hero-proof-value">{stat.value}</p>
-                  <p className="hero-proof-label">{stat.label}</p>
+                <div key={stat.label} className="hero-proof-inline">
+                  <p className="hero-proof-inline-value">{stat.value}</p>
+                  <p className="hero-proof-inline-label">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -420,22 +372,12 @@ export default function HomePage() {
                   <span className="inline-flex h-2.5 w-2.5 rounded-full bg-[var(--color-orange)]" />
                   Szybki dojazd na terenie Krakowa
                 </div>
-                <div className="hero-media-card">
-                  <p className="hero-media-card-title">Technik, który odbiera i przyjeżdża</p>
-                  <p className="hero-media-card-copy">
-                    Nie zostawiamy klienta z formularzem bez odpowiedzi. Przy awarii liczy się
-                    konkret, diagnostyka i sprawna organizacja wyjazdu.
+                <div className="hero-media-caption">
+                  <p className="hero-media-caption-title">Od pierwszego telefonu do uruchomienia instalacji</p>
+                  <p className="hero-media-caption-copy">
+                    Montaż, serwis i interwencje awaryjne organizujemy bez pośredników i bez
+                    przeciągania kontaktu.
                   </p>
-                  <div className="hero-media-meta">
-                    <div className="hero-media-meta-item">
-                      <p className="hero-media-meta-label">Najczęstsze zlecenia</p>
-                      <p className="hero-media-meta-value">Kotły gazowe, pompy ciepła, pogotowie</p>
-                    </div>
-                    <div className="hero-media-meta-item">
-                      <p className="hero-media-meta-label">Kontakt awaryjny</p>
-                      <p className="hero-media-meta-value">Telefonicznie 24/7, bez pośredników</p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
