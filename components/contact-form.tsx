@@ -33,7 +33,9 @@ function formatPolishPhone(input: string) {
 
 function isValidPolishPhone(input: string) {
   const digits = input.replace(/\D/g, "");
-  return digits.length === 9 || (digits.length === 11 && digits.startsWith("48"));
+  return (
+    digits.length === 9 || (digits.length === 11 && digits.startsWith("48"))
+  );
 }
 
 export function ContactForm() {
@@ -45,9 +47,19 @@ export function ContactForm() {
   const canSubmit = phoneValid && form.name.trim().length > 1 && form.consent;
 
   return (
-    <div className="contact-panel p-8 max-md:p-5">
+    <div className="contact-panel contact-form-panel p-8 max-md:p-5">
+      <div className="contact-form-header">
+        <h3 className="contact-form-title">
+          Zostaw numer i opisz, czego potrzebujesz
+        </h3>
+        <p className="contact-form-copy">
+          Formularz jest krótki, bo zależy nam na szybkim kontakcie. Wystarczy
+          podstawowy zakres prac i numer do oddzwonienia.
+        </p>
+      </div>
+
       <form
-        className="space-y-5"
+        className="contact-form-fields"
         onSubmit={(event) => {
           event.preventDefault();
           setAttempted(true);
@@ -96,7 +108,10 @@ export function ContactForm() {
           <select
             value={form.service}
             onChange={(event) =>
-              setForm((current) => ({ ...current, service: event.target.value }))
+              setForm((current) => ({
+                ...current,
+                service: event.target.value,
+              }))
             }
             className="form-field select-field"
           >
@@ -112,7 +127,10 @@ export function ContactForm() {
           <textarea
             value={form.message}
             onChange={(event) =>
-              setForm((current) => ({ ...current, message: event.target.value }))
+              setForm((current) => ({
+                ...current,
+                message: event.target.value,
+              }))
             }
             placeholder="Opisz krótko, czego potrzebujesz."
             className="form-field min-h-20 resize-y"
@@ -124,12 +142,16 @@ export function ContactForm() {
             type="checkbox"
             checked={form.consent}
             onChange={(event) =>
-              setForm((current) => ({ ...current, consent: event.target.checked }))
+              setForm((current) => ({
+                ...current,
+                consent: event.target.checked,
+              }))
             }
             className="mt-[2px] h-4 w-4 accent-[var(--color-accent)]"
           />
           <span className="meta-text leading-6">
-            Wyrażam zgodę na kontakt telefoniczny i mailowy w celu przedstawienia oferty.
+            Wyrażam zgodę na kontakt telefoniczny i mailowy w celu
+            przedstawienia oferty.
           </span>
         </label>
 
@@ -141,13 +163,22 @@ export function ContactForm() {
 
         {submitted ? (
           <p className="rounded-[8px] border border-[var(--color-border)] bg-[var(--color-accent-light)] px-4 py-3 text-[13px] leading-[1.5] text-[var(--color-accent)]">
-            Dziękujemy. W wersji produkcyjnej formularz wyśle zgłoszenie bezpośrednio do biura.
+            Dziękujemy. W wersji produkcyjnej formularz wyśle zgłoszenie
+            bezpośrednio do biura.
           </p>
         ) : null}
 
-        <button type="submit" className="button-base button-primary h-[52px] w-full">
+        <button
+          type="submit"
+          className="button-base button-primary h-[52px] w-full"
+        >
           Zamów bezpłatną wycenę -&gt;
         </button>
+
+        <p className="contact-form-footnote">
+          Dane wykorzystujemy wyłącznie do kontaktu w sprawie wyceny lub
+          zgłoszenia serwisowego.
+        </p>
       </form>
     </div>
   );

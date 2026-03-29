@@ -154,6 +154,30 @@ const reviews = [
   },
 ];
 
+const reviewHighlights = [
+  { value: "280+", label: "opinii na Google" },
+  { value: "4.9/5", label: "średnia ocen klientów" },
+  { value: "24/7", label: "wyjazdy awaryjne" },
+];
+
+const contactDetails = [
+  {
+    type: "clock" as const,
+    title: "Oddzwaniamy zwykle tego samego dnia",
+    copy: "W godzinach pracy szybko wracamy z informacją o terminie, zakresie i wstępnej wycenie.",
+  },
+  {
+    type: "service" as const,
+    title: "Awaria? Działamy całodobowo",
+    copy: "W trybie pilnym przyjmujemy zgłoszenia 24/7 na terenie Krakowa i najbliższych okolic.",
+  },
+  {
+    type: "location" as const,
+    title: "Biuro i obsługa w Krakowie",
+    copy: "Pracujemy lokalnie, dlatego łatwiej umawiamy wizję, serwis i późniejszą opiekę nad instalacją.",
+  },
+];
+
 function BenefitIcon({ type }: { type: string }) {
   if (type === "shield") {
     return (
@@ -618,36 +642,47 @@ export default function HomePage() {
 
       <section className="bg-[var(--color-bg-dark)] pb-16 pt-12">
         <div className="site-container">
-          <Reveal className="max-w-[720px]">
-            <h2 className="section-title section-title-dark section-title-surface section-title-surface-dark">
-              Co mówią nasi klienci
-            </h2>
-            <p className="mt-3 text-[14px] leading-[1.5] text-[rgba(255,255,255,0.55)]">
-              Ponad 280 opinii na Google. Średnia 4.9/5.
-            </p>
-          </Reveal>
+          <div className="reviews-shell">
+            <Reveal className="max-w-[720px]">
+              <h2 className="section-title section-title-dark section-title-surface section-title-surface-dark">
+                Co mówią nasi klienci
+              </h2>
+              <p className="dark-subtitle mt-4 max-w-[560px] text-[15px] leading-[1.7]">
+                Opinie pokazują to samo, co widać w naszej pracy: szybki
+                kontakt, porządek na montażu i konkretną reakcję wtedy, gdy
+                instalacja przestaje działać.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.06}>
+              <div className="review-highlight-grid">
+                {reviewHighlights.map((item) => (
+                  <div key={item.label} className="review-highlight-card">
+                    <p className="review-highlight-value">{item.value}</p>
+                    <p className="review-highlight-label">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {reviews.map((review, index) => (
               <Reveal key={review.author} delay={0.08 * index}>
-                <div className="flex h-full flex-col rounded-[8px] border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.06)] p-6">
-                  <p className="text-[16px] leading-none text-[#F59E0B]">
-                    ★★★★★
-                  </p>
-                  <p className="mt-3 text-[15px] font-light leading-[1.65] text-[rgba(255,255,255,0.8)]">
-                    &quot;{review.text}&quot;
-                  </p>
-                  <div className="my-4 border-t border-[rgba(255,255,255,0.08)]" />
-                  <div className="mt-auto">
-                    <p className="text-[14px] font-medium leading-[1.5] text-white">
-                      {review.author}
-                    </p>
-                    <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[12px] leading-[1.5] text-[rgba(255,255,255,0.42)]">
+                <article className="review-card">
+                  <div className="review-card-top">
+                    <p className="review-stars">★★★★★</p>
+                    <span className="review-source">{review.source}</span>
+                  </div>
+                  <p className="review-copy">&quot;{review.text}&quot;</p>
+                  <div className="review-divider" />
+                  <div className="review-meta">
+                    <p className="review-author">{review.author}</p>
+                    <div className="review-location-row">
                       <span>{review.area}</span>
-                      <span>{review.source}</span>
                     </div>
                   </div>
-                </div>
+                </article>
               </Reveal>
             ))}
           </div>
@@ -665,48 +700,52 @@ export default function HomePage() {
 
       <section id="kontakt" className="site-section bg-[var(--color-bg-alt)]">
         <div className="site-container">
-          <div className="grid gap-6 lg:grid-cols-[40fr_60fr] lg:items-start">
+          <div className="contact-shell">
             <Reveal>
-              <div className="max-w-[420px]">
-                <h2 className="font-[var(--font-heading)] text-[28px] font-bold leading-[1.2] text-[var(--color-text)]">
+              <div className="contact-intro">
+                <h2 className="section-title section-title-surface">
                   Odpowiemy szybko i konkretnie
                 </h2>
-                <p className="mt-4 text-[15px] font-light leading-[1.7] text-[var(--color-text-muted)]">
-                  Zostaw numer - oddzwaniamy zwykle jeszcze tego samego dnia w
-                  godzinach pracy.
+                <p className="section-subtitle mt-4 max-w-[560px]">
+                  Wystarczy numer telefonu i krótka informacja o problemie.
+                  Oddzwaniamy bez przeciągania kontaktu i od razu ustalamy
+                  sensowny następny krok.
                 </p>
 
-                <div className="mt-7 space-y-5">
-                  <div className="flex items-start gap-3">
-                    <ContactInfoIcon type="clock" />
-                    <p className="text-[14px] leading-[1.6] text-[var(--color-text)]">
-                      Pon-Pt, 8:00-20:00
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <ContactInfoIcon type="service" />
-                    <p className="text-[14px] leading-[1.6] text-[var(--color-text)]">
-                      Awaria? Serwis całą dobę, 7 dni w tygodniu
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <ContactInfoIcon type="location" />
-                    <p className="text-[14px] leading-[1.6] text-[var(--color-text)]">
-                      ul. Wielicka 92, 30-552 Kraków
-                    </p>
-                  </div>
+                <div className="contact-detail-grid">
+                  {contactDetails.map((item) => (
+                    <div key={item.title} className="contact-detail-card">
+                      <span className="contact-detail-icon">
+                        <ContactInfoIcon type={item.type} />
+                      </span>
+                      <div>
+                        <p className="contact-detail-title">{item.title}</p>
+                        <p className="contact-detail-copy">{item.copy}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
 
-                <a
-                  href="tel:+48123456789"
-                  className="mt-6 inline-block font-[var(--font-heading)] text-[24px] font-bold leading-[1.2] text-[var(--color-accent)]"
-                >
-                  +48 12 345 67 89
-                </a>
+                <div className="contact-direct-panel">
+                  <div>
+                    <p className="contact-direct-label">
+                      Telefon do biura i serwisu
+                    </p>
+                    <a href="tel:+48123456789" className="contact-direct-phone">
+                      +48 12 345 67 89
+                    </a>
+                  </div>
+                  <a
+                    href="tel:+48123456789"
+                    className="button-base button-urgent px-6 py-[15px]"
+                  >
+                    Zadzwoń teraz
+                  </a>
+                </div>
               </div>
             </Reveal>
 
-            <div className="space-y-5">
+            <div className="contact-stack">
               <Reveal delay={0.08}>
                 <ContactForm />
               </Reveal>
